@@ -253,9 +253,18 @@ a>p{
 }
 .foot{
     padding: 1rem;
-
+    display: flex;
+    justify-content: flex-end;
+}
+.text-center{
+    align-items:right;
+    display: flex;
+    text-align: right;
 }
 .footd{
     padding: 1rem;
-
+    display: flex;
+    justify-content: flex-start;
 }
+
+

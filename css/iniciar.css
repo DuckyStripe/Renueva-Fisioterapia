@@ -30,6 +30,13 @@ html, body{
     align-items: center;
     justify-content: center;
 }
+#logo{
+    margin-left: 0px!important;
+    color:var(--color-pheader);
+    text-decoration: none;
+    font-weight:500;
+    font-size: 25px;
+}
 .lhead>a{
     padding-top: 1rem;
 }
@@ -83,14 +90,27 @@ html, body{
         padding: 1px;
     
     }
-
+    .inp{
+        border-radius: 30px;
+        border: 3px solid ;
+        color:#495371;
+        width: 80vw!important;
+    }
+    .ipass{
+        border-radius: 30px;
+        border: 3px solid ;
+        color:#495371;
+        width:40vw!important;
+        display:flex;
+    }
 }
 /* Header */
 .contenido{
-            display: flex;
-        align-items: center;
+        display: flex;
+        text-align: center;
 }
 .linea{
+    margin-left:10rem;
     height:80vh;
     width:1rem;
     color:#495371 ;
@@ -101,40 +121,53 @@ h2{
     padding: 10px!important;
 }
 .form-group{
-    display: flex;
-    align-items: center;
+
     padding: 10px;
+    margin: 0 auto;
 
 }
-.botonin{
-
+.formulario{
+    padding-bottom: 20px;
+}
+.formulario>a{
+    font-family: var(--letra-parrafos);
+    font-weight: 600;
+    font-size: 20px;
+    color: #495371;
+    text-align: justify;
+    padding-bottom: 20px;
 }
 .inp{
     border-radius: 30px;
     border: 3px solid ;
     color:#495371;
-    width: 20rem;
+    width: 25vw;
 }
-
+.inpu{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width: 50vw;
+}
 input{
     padding-bottom: 10px;
+    
 }
 .ipass{
     border-radius: 30px;
     border: 3px solid ;
     color:#495371;
-    width:10rem;
+    width:12.5vw;
+    display:inline-block;
 }
-.pass{
-    display: flex;
-    align-items: stretch;
-}
-.pass{
+label{
     font-family: var(--letra-parrafos);
-    font-weight: 600;
-    font-size: 18px;
-    color: var( --color-titulos);
+    font-weight:bold;
+    font-size: 20px;
+    color: #495371;
     text-align: justify;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .termino{
     font-family: var(--letra-parrafos);
@@ -142,6 +175,15 @@ input{
     font-size: 19px;
     color: var( --color-titulos);
     text-align: justify;
-    padding-top: 15px;
+    display:inline-block;
     padding-left: 10px;
+}
+.colum{
+    display: inline-block;
+}
+.iniciar{
+    margin: 0 auto;
+    float:left;
+    display: inline-block;
+    justify-content:center;
 }

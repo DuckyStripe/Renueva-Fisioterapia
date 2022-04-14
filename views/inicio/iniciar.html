@@ -17,45 +17,36 @@
     <title>Renueva</title>
 </head>
 <body>
-    <header class="container-fluid bg-header">
-        <div class="lhead">
+    <header class="container-fluid bg-header lhead">
+        <div class="">
             <a class="navbar-brand" id="logo" href="#">
                 <img src="/img/logo.png" alt="" width="100" height="60" class="d-inline-block">
                 Renueva Fisioterapia
             </a>
         </div>
     </header>
-    <main class="container">
-        <div class="row contenido">
-            <div class="col-md-5">
-                <div class="row">
-                    <h2>Iniciar Sesion</h2>
-                </div>
-                <div class="form-group">
-                    <form action="" method="POST">
-                        <p>
-                            <label  for="email">Correo Electronico:<br>
-                                <input class="inp" type="email" name="email"><br>
-                            </label>
-                            <label for="password">Contraseña<br>
-                                <input class="inp" type="password" name="password"><br>
-                            </label>
-                            <a href="#">¿Haz olvidado tu contraseña?</a><br>
-                            <input type="submit" class="btn btn-primary botonin"value="Iniciar Sesion"><br>
-                        </p>
-                    </form>
-                </div>
+    <main class="contenedor">
+        <div class="contenido">
+            <div class="iniciar">
+                <h2>Iniciar Sesion</h2>
+                <form action="" method="POST">
+                    <div class="formulario">
+                        <label  for="email">Correo Electronico:<br>
+                            <input class="inp" type="email" name="email"><br>
+                        </label>
+                        <label for="password">Contraseña<br>
+                            <input class="inp" type="password" name="password"><br>
+                        </label><br>
+                        <a href="#">¿Haz olvidado tu contraseña?</a>
+                    </div>
+                    <input type="submit" class="btn btn-primary botonh"value="Iniciar Sesion"><br>
+                </form>
             </div>
-            <div class="linea">
-
-            </div>
-            <div  class="col-md-5">
-                <div class="row">
+            <div class="linea"></div>
+            <div  class="iniciar">
                     <h2>Registrarse</h2>
-                </div>
-                <div class="form-group">
+                <div class="registro">
                     <form action="" method="POST">
-                        <p>
                             <label for="name">Nombre Completo:<br>
                                 <input class="inp" type="name" name="name"><br>
                             </label>
@@ -65,19 +56,16 @@
                             <label for="name">Correo electrónico:<br>
                                 <input class="inp" type="name" name="name"><br>
                             </label>
-                            <div class="pass">
                                 <label for="password">Contraseña<br>
-                                    <input class="ipass" type="password" name="password"><br>
+                                    <input class="inp" type="password" name="password"><br>
                                 </label>
                                 <label for="password">Verificar Contraseña<br>
-                                    <input class="ipass" type="password" name="password"><br>
+                                    <input class="inpu" type="password" name="password"><br>
                                 </label>
-                            </div>
                             <div class="form-group">
-                            <input type="checkbox" name="terminos"><p class="termino"> Acepto los terminos y condiciones</p>
-                        </div>
-                            <input type="submit" class="btn btn-primary botonin"value="Registrarse">
-                        </p>
+                                <input type="checkbox" name="terminos"><p class="termino"> Acepto los terminos y condiciones</p>
+                            </div>
+                            <input type="submit" class="btn btn-primary botonh"value="Registrarse">
                     </form>
                 </div>
             </div>
@@ -87,10 +75,12 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 footd">
-                    <p>Copyright ©Aviso Terminos y Condiciones</p>
+                <div class="col footd">
+                    <a href="https://trascendersoft1.000webhostapp.com/">
+                        <p class="text-center"> Copyright ©Aviso Terminos y Condiciones</p>
+                    </a>
                 </div>
-                <div class="col-md-6 foot">
+                <div class="col foot">
                     <a href="https://trascendersoft1.000webhostapp.com/">
                         <p>Desarrollador TrascenderSoft</p>
                     </a>
