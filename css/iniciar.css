@@ -1,0 +1,147 @@
+/* Variables */
+:root{
+    --letra-titulos:'Oswald', sans-serif;
+    --letra-parrafos:'Montserrat', sans-serif;
+    --color-header:#495371;
+    --color-pheader:#FEFAE0;
+    --color-titulos:#4F5556;
+    --color-contacto:#3B6A71;
+}
+main{
+    overflow:hidden;
+    width:100%;
+    padding-bottom: 2rem;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+*{
+    margin: 0;    
+    padding: 0;     
+    -webkit-box-sizing: border-box;    
+    -moz-box-sizing: border-box;     
+    box-sizing: border-box; }
+html, body{
+    height:100%
+    margin 0;
+    }
+.lhead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.lhead>a{
+    padding-top: 1rem;
+}
+/* dispositivos */
+@media (max-width: 1000px){
+    .container{
+        width:100%;
+        padding-bottom: 2rem;
+        padding: 30px;
+        display: flex;
+        align-items: center;
+    }
+    .linea{
+        padding-left: 10px;
+        height:2px!important;
+        width:90vw!important;
+        color:#495371 ;
+        background-color:#495371;
+        border-radius: 16px;
+        
+    }
+    .row{
+        display: flex;
+        align-items: center;  
+    }
+    /* footer */
+    footer{
+        background-color: var(--color-header);
+    }
+    .foot>p{
+        color:var(--color-pheader);
+        font-size: 20px;
+        font-weight:600;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+    .footd>p{
+        color:var(--color-pheader);
+        font-size: 20px;
+        font-weight:600;
+        display: flex;
+        align-items: left;
+        justify-content: left;
+    }
+    .foot{
+        padding:1px;
+    
+    }
+    .footd{
+        padding: 1px;
+    
+    }
+
+}
+/* Header */
+.contenido{
+            display: flex;
+        align-items: center;
+}
+.linea{
+    height:80vh;
+    width:1rem;
+    color:#495371 ;
+    background-color:#495371;
+    border-radius: 16px;
+}
+h2{
+    padding: 10px!important;
+}
+.form-group{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+}
+.botonin{
+
+}
+.inp{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width: 20rem;
+}
+
+input{
+    padding-bottom: 10px;
+}
+.ipass{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width:10rem;
+}
+.pass{
+    display: flex;
+    align-items: stretch;
+}
+.pass{
+    font-family: var(--letra-parrafos);
+    font-weight: 600;
+    font-size: 18px;
+    color: var( --color-titulos);
+    text-align: justify;
+}
+.termino{
+    font-family: var(--letra-parrafos);
+    font-weight: 600;
+    font-size: 19px;
+    color: var( --color-titulos);
+    text-align: justify;
+    padding-top: 15px;
+    padding-left: 10px;
+}
