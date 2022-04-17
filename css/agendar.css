@@ -1,0 +1,212 @@
+/* Variables */
+:root{
+    --letra-titulos:'Oswald', sans-serif;
+    --letra-parrafos:'Montserrat', sans-serif;
+    --color-header:#495371;
+    --color-pheader:#FEFAE0;
+    --color-titulos:#4F5556;
+    --color-contacto:#3B6A71;
+}
+main{
+    overflow:hidden;
+    width:100%;
+    padding-bottom: 2rem;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+}
+*{
+    margin: 0;    
+    padding: 0;     
+    -webkit-box-sizing: border-box;    
+    -moz-box-sizing: border-box;     
+    box-sizing: border-box; }
+html, body{
+    height:100%
+    margin 0;
+    }
+.lhead{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo{
+    margin-left: 0px!important;
+    color:var(--color-pheader);
+    text-decoration: none;
+    font-weight:500;
+    font-size: 25px;
+}
+.lhead>a{
+    padding-top: 1rem;
+}
+/* dispositivos */
+@media (max-width: 1000px){
+    .contenido{
+        width:100vw;
+        height:100vh;
+        position:relative;
+        overflow:hidden;
+        display: table;
+    }
+    .iniciar{
+        display: flex;
+        width:100%;
+        height:100%;
+        position:absolute;
+    }
+    .contenedor{
+        width:100vw;
+        height:100vh;
+        padding-bottom: 2rem;
+        padding: 30px;
+        display: flex;
+    }
+    .linea{
+        padding-left: 1px;
+        height:2px!important;
+        width:90vw!important;
+        color:#495371 ;
+        background-color:#495371;
+        border-radius: 16px;
+        display: table-cell;
+    }
+    footer{
+        background-color: var(--color-header);
+    }
+    .foot>p{
+        color:var(--color-pheader);
+        font-size: 20px;
+        font-weight:600;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+    .footd>p{
+        color:var(--color-pheader);
+        font-size: 20px;
+        font-weight:600;
+        display: flex;
+        align-items: left;
+        justify-content: left;
+    }
+    .foot{
+        padding:1px;
+    
+    }
+    .footd{
+        padding: 1px;
+    
+    }
+    .inp{
+        border-radius: 30px;
+        border: 3px solid ;
+        color:#495371;
+        width: 50vw!important;
+    }
+    .ipass{
+        border-radius: 30px;
+        border: 3px solid ;
+        color:#495371;
+        width:40vw!important;
+        display:flex;
+    }
+}
+/* Header */
+.contenido{
+    position: relative;
+        display: flex;
+        text-align: center;
+}
+.linea{
+    margin-left:10rem;
+    height:80vh;
+    width:1rem;
+    color:#495371 ;
+    background-color:#495371;
+    border-radius: 16px;
+}
+h2{
+    padding: 10px!important;
+}
+.form-group{
+
+    padding: 10px;
+    margin: 0 auto;
+
+}
+.formulario{
+    padding-bottom: 20px;
+}
+.formulario>a{
+    font-family: var(--letra-parrafos);
+    font-weight: 600;
+    font-size: 20px;
+    color: #495371;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+.inp{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width: 35vw;
+}
+.comment{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width: 35vw;
+    height: 30vh;
+    text-align: start;
+}
+.inpu{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width: 100%;
+    text-align: center;
+}
+input{
+    padding-bottom: 10px;
+    
+}
+.ipass{
+    border-radius: 30px;
+    border: 3px solid ;
+    color:#495371;
+    width:12.5vw;
+    display:inline-block;
+}
+label,textarea{
+    font-family: var(--letra-parrafos);
+    font-weight:bold;
+    font-size: 20px;
+    color: #495371;
+    text-align: justify;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    resize: none;
+}
+.termino{
+    font-family: var(--letra-parrafos);
+    font-weight: 600;
+    font-size: 19px;
+    color: var( --color-titulos);
+    text-align: justify;
+    display:inline-block;
+    padding-left: 10px;
+}
+.iniciar{
+    margin: 0 auto;
+    display: inline-block;
+    justify-content:center;
+}
+.contenedor{
+    width: 100%;
+    padding-right:5rem;
+    padding-left: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+    
+}

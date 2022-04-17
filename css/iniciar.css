@@ -42,27 +42,35 @@ html, body{
 }
 /* dispositivos */
 @media (max-width: 1000px){
-    .container{
+    .contenido{
+        width:100vw;
+        height:100vh;
+        position:relative;
+        overflow:hidden;
+        display: table;
+    }
+    .iniciar{
+        display: flex;
         width:100%;
+        height:100%;
+        position:relative;
+    }
+    .contenedor{
+        width:100vw;
+        height:100vh;
         padding-bottom: 2rem;
         padding: 30px;
         display: flex;
-        align-items: center;
     }
     .linea{
-        padding-left: 10px;
+        padding-left: 1px;
         height:2px!important;
         width:90vw!important;
         color:#495371 ;
         background-color:#495371;
         border-radius: 16px;
-        
+        display: table-cell;
     }
-    .row{
-        display: flex;
-        align-items: center;  
-    }
-    /* footer */
     footer{
         background-color: var(--color-header);
     }
@@ -94,7 +102,7 @@ html, body{
         border-radius: 30px;
         border: 3px solid ;
         color:#495371;
-        width: 80vw!important;
+        width: 50vw!important;
     }
     .ipass{
         border-radius: 30px;
@@ -178,12 +186,15 @@ label{
     display:inline-block;
     padding-left: 10px;
 }
-.colum{
-    display: inline-block;
-}
 .iniciar{
     margin: 0 auto;
-    float:left;
     display: inline-block;
     justify-content:center;
+}
+.contenedor{
+    width: 100%;
+    padding-right:5rem;
+    padding-left: 5rem;
+    margin-right: auto;
+    margin-left: auto;
 }

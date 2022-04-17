@@ -227,44 +227,34 @@ iframe{
 footer{
     background-color: var(--color-header);
 }
-.foot>p{
+.text-centerd{
     color:var(--color-pheader);
-    font-size: 20px;
-    font-weight:600;
     display: flex;
     align-items: end;
     justify-content: end;
+    padding-top: 2rem!important;
+}
+a>p,.footd>p{
+    color:var(--color-pheader);
+    font-weight:600;
+    font-size: 15px!important;
 }
 .footd>p{
-    color:var(--color-pheader);
-    font-size: 20px;
-    font-weight:600;
-    display: flex;
-    align-items: left;
-    justify-content: left;
+    padding-top: 1rem;
 }
-a>p{
-    color:var(--color-pheader);
-    font-size: 20px;
-    font-weight:600;
-    display: flex;
-    align-items: left;
-    justify-content: left;
+.foot>a>p{
+    padding-top: 1rem!important;
 }
 .foot{
-    padding: 1rem;
-    display: flex;
+    display:flex;
+    align-items: center;
     justify-content: flex-end;
-}
-.text-center{
-    align-items:right;
-    display: flex;
-    text-align: right;
 }
 .footd{
     padding: 1rem;
     display: flex;
     justify-content: flex-start;
 }
+
 
 
