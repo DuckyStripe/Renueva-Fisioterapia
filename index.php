@@ -1,10 +1,11 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/img/logo.png">
+    <link rel="shortcut icon" href="img/logo.png">
     <!--Bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!--Fuentes link -->
@@ -12,16 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&family=Oswald:wght@300;400&display=swap" rel="stylesheet">
     <!--Estilos link -->
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Renueva</title>
 </head>
 <body>
+    
     <header class="container-fluid bg-header">
         <nav class="navbar navbar-expand-lg navbar-light lnav">
             <div class="container-fluid ">
                 <div    class="col-md-6">
                     <a class="navbar-brand" id="logo" href="#">
-                        <img src="/img/logo.png" alt="" width="100" height="60" class="d-inline-block align-text-center">
+                        <img src="img/logo.png" alt="" width="100" height="60" class="d-inline-block align-text-center">
                         Renueva Fisioterapia
                     </a>
                 </div>
@@ -31,6 +33,22 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     </div>
+                    <?php
+                    $comprobar=isset($_SESSION['user']);
+                    if ($comprobar == "True") {
+                        $Destino1 = "views/citas/agendar.php";
+                        $Destino2= "views/citas/historial.php";
+                        $Destino3 = "views/shop/shop.php";
+                        $sesion = "CERRAR SESION";
+                        $iniciar= "php/loguout.php";
+                    }else{
+                        $Destino1 = "views/inicio/iniciar.php";
+                        $Destino2= "views/inicio/iniciar.php";
+                        $Destino3 = "views/inicio/iniciar.php";
+                        $sesion = "INICIAR SESION";
+                        $iniciar= "views/inicio/iniciar.php";
+                    }
+                    ?>
                     <div class="collapse navbar-collapse menu justify-content-end head" id="navbarNavDropdown">
                         <ul class="navbar-nav lista">
                             <li class="nav-item">
@@ -44,6 +62,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="active align-middle" aria-current="page" href="#Contacto">CONTACTO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="active align-middle" aria-current="page" href="<?php echo $iniciar?>"><?php echo $sesion?></a>
                             </li>
                         </ul>
                     </div>
@@ -63,21 +84,21 @@
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active itemcarrusel">
-                    <img src="/img/carrusel/carrusel11.jpg" class="d-block w-100 imgcarrusel" alt="...">
+                    <img src="img/carrusel/carrusel11.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
                       <h5>First slide label</h5>
                       <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img src="/img/carrusel/carrusel12.jpg" class="d-block w-100 imgcarrusel" alt="...">
+                    <img src="img/carrusel/carrusel12.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
                       <h5>Second slide label</h5>
                       <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img src="/img/carrusel/carrusel13.jpg" class="d-block w-100 imgcarrusel" alt="...">
+                    <img src="img/carrusel/carrusel13.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
                       <h5>Third slide label</h5>
                       <p>Some representative placeholder content for the third slide.</p>
@@ -107,7 +128,7 @@
                 <div class="card mb-3" style="max-width: max-content;">
                     <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="/img/servicios/Servicios1.jpg" class="img-fluid rounded-start" alt="Choque de puños">
+                        <img src="img/servicios/Servicios1.jpg" class="img-fluid rounded-start" alt="Choque de puños">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -126,14 +147,14 @@
                             </div>
                             </div>
                             <div class="col-md-4">
-                                <img src="/img/servicios/Servicios2.jpg" class="img-fluid rounded-start" alt="Computadora con contenido">
+                                <img src="img/servicios/Servicios2.jpg" class="img-fluid rounded-start" alt="Computadora con contenido">
                             </div>
                     </div>
                 </div>
                 <div class="card mb-3" style="max-width: max-content;">
                     <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="/img/servicios/Servicios3.jpg" class="img-fluid rounded-start" alt="Persona utilizando una computadora">
+                        <img src="img/servicios/Servicios3.jpg" class="img-fluid rounded-start" alt="Persona utilizando una computadora">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -145,10 +166,10 @@
             </div>
             <div class="row">
                 <div class="col-md-6 agendar">
-                    <a href="/views/inicio/iniciar.html" class="btn btn-primary botonh">Agendar Cita</a>
+                    <a href="<?php echo $Destino1 ?>" class="btn btn-primary botonh">Agendar Cita</a>
                 </div>
                 <div class="col-md-6 historial">
-                        <a href="/views/inicio/iniciar.html" class="btn btn-primary botonh" >Historial de citas 
+                        <a href="<?php echo $Destino2 ?>" class="btn btn-primary botonh" >Historial de citas 
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-rotate-clockwise" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <path d="M4.05 11a8 8 0 1 1 .5 4m-.5 5v-5h5" />
@@ -170,21 +191,21 @@
                     <!--Tarjetas -->
                     <div class="row">
                         <div class="card tarjetas">
-                            <img src="/img/productos/producto1.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                         <div class="card tarjetas" >
-                            <img src="/img/productos/producto2.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto2.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
-                            <img src="/img/productos/producto3.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto3.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -193,21 +214,21 @@
                     </div> 
                     <div class="row">
                         <div class="card tarjetas">
-                            <img src="/img/productos/producto4.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto4.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
-                            <img src="/img/productos/producto5.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto5.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
-                            <img src="/img/productos/producto6.jpg" class="card-img-top" alt="...">
+                            <img src="img/productos/producto6.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -218,7 +239,7 @@
             </div>
             <div class="row botoncomprar">
                 <div class="col-md-4 offset-md-10">
-                    <a href="/views/inicio/iniciar.html" class="btn btn-primary botonh">Comprar ahora
+                    <a href="<?php echo $Destino3 ?>" class="btn btn-primary botonh">Comprar ahora
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-store" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                             <line x1="3" y1="21" x2="21" y2="21" />
@@ -294,6 +315,7 @@
             </div>
         </div>
     </footer>
+
     <!--Bootstrap link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

@@ -1,9 +1,5 @@
 SET NAMES 'utf8';
-DROP DATABASE IF EXISTS renueva;
-CREATE DATABASE IF NOT EXISTS renueva DEFAULT CHARACTER SET utf8;
-DROP database renueva;
-create database renueva;
-use renueva;
+use id18841401_renueva;
 
 create table categoria(
     id_categoria INTEGER NOT NULL AUTO_INCREMENT,
