@@ -25,10 +25,16 @@ html, body{
     height:100%
     margin 0;
     }
-.lhead{
+.lhead,.lefthead{
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-right: 40px!important;
+}
+.hea{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 #logo{
     margin-left: 0px!important;
@@ -37,7 +43,7 @@ html, body{
     font-weight:500;
     font-size: 25px;
 }
-.lhead>a{
+.lhead>a,.lefthead>a{
     padding-top: 1rem;
 }
 /* dispositivos */
@@ -209,4 +215,10 @@ label,textarea{
     margin-right: auto;
     margin-left: auto;
     
+}
+.agendar{
+    padding-top: 20px!important;
+}
+#fecha{
+    padding-bottom: 20px!important;
 }

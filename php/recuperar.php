@@ -23,11 +23,11 @@ if( mysqli_num_rows( $emailC ) > 0){
         $cuerpo = "Bienvenido: $user \n";
         $cuerpo = "Te damos la bienvenida a nuestra tienda en linea, tus credenciales son las siguientes:\n";
         $cuerpo .= "Correo: $email \n";
-        $cuerpo .= "Contraseña: $password";
+        $cuerpo .= "Contraseña: $Apass";
         if (mail($email,$asunto,$cuerpo)) {
-            echo "Email enviado con exito a: $email...";
+            echo '<script> alert("Email enviado con exito..."); window.location.href="../views/inicio/recuperar.php"; </script>';
         } else {
-            echo "Email sending failed...";
+            echo '<script> alert("Email sending failed..."); window.location.href="../views/inicio/recuperar.php"; </script>';
         }
 
     }

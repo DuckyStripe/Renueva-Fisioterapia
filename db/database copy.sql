@@ -56,16 +56,23 @@ create table servicios(
     primary key (id_servicio)
 )DEFAULT CHARACTER SET utf8;
 
+create table hora(
+    idhora int not null auto_increment,
+    hora time not null,
+    primary key (idhora)
+)DEFAULT CHARACTER SET utf8;
+
 create table citas(
     id_citas int not null auto_increment,
     iduser int not null,
-    fecha date not null,
-    hora varchar(50) not null,
+    fecha varchar(10) not null,
+    idhora int not null,
     id_servicio int not null,
     comentario varchar(50) not null,
     primary key (id_citas),
     FOREIGN KEY (iduser) REFERENCES usuarios(iduser),
-    FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio)
+    FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio),
+    FOREIGN KEY (idhora) REFERENCES hora(idhora)
 )DEFAULT CHARACTER SET utf8;
 
 
@@ -103,7 +110,21 @@ INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (1,'
 INSERT INTO servicios (servicio) Values("test1");
 
 INSERT INTO servicios (servicio) Values("test");
-INSERT INTO citas(iduser,fecha,hora,id_servicio,comentario) VALUES(1,'2022-12-12','08:30',1,'Test');
+INSERT INTO hora (hora) VALUES('08:00');
+INSERT INTO hora (hora) VALUES('09:00');
+INSERT INTO hora (hora) VALUES('10:00');
+INSERT INTO hora (hora) VALUES('11:00');
+INSERT INTO hora (hora) VALUES('12:00');
+INSERT INTO hora (hora) VALUES('13:00');
+INSERT INTO hora (hora) VALUES('14:00');
+INSERT INTO hora (hora) VALUES('15:00');
+INSERT INTO hora (hora) VALUES('16:00');
+INSERT INTO hora (hora) VALUES('17:00');
+INSERT INTO hora (hora) VALUES('18:00');
+INSERT INTO hora (hora) VALUES('19:00');
+INSERT INTO hora (hora) VALUES('20:00');
+
+INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',1,1,'Test');
 
 INSERT INTO inventario(inv_date,inv_total,Ar_id) VALUES('2022-12-12',20,1);
 
