@@ -62,14 +62,42 @@ $directorio ="";
         <div class="contenido">
             <h2>Agendar Cita</h2>
             <div class="iniciar">
-                <form action="agendar.php" method="POST">
+                <form action="agendar.php"id="agenda" method="POST">
                     <div class="formulario align-middle">
                         <label  for="fecha">Fecha:<br>
-                            <input class="inp" type="date" name="fecha" require><br>
+                            <input class="inp" type="date" name="fecha" id="fecha" onchange="getValueInput()"require><br>
+                            <script>
+                                  const getValueInput = () =>{
+                                        var bandera= 0;
+                                        let extraer = document.getElementById("fecha").value; 
+                                        let date = new Date();
+                                        let output = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' +  String(date.getDate()).padStart(2, '0');
+                                        console.log(output);
+                                        console.log(extraer);
+                                        if(extraer < output){
+                                           alert("la fecha "+extraer+" No es valida");
+                                           bandera= 0;
+                                           window.location.href="#";
+                                           
+                                        }else{
+                                            return bandera=1;
+                                    }
+                                }
+                                    function enviar(bandera) {
+                                        if(bandera == 1){
+                                            document.getElementById('agenda').submit();
+
+                                        }else{
+                                            alert("la fecha "+extraer+" No es valida");
+                                            window.location.href="#";
+                                        }
+                                    }
+                            </script>
                         </label>
                     </div>
                     <div class="col-md-2 offset-md-5">
-                        <input type="submit" class="btn btn-primary botonh"value="Verificar Disponibilidad">
+                        <input type="button" class="btn btn-primary botonh"value="Verificar Disponibilidad" onclick="enviar(getValueInput())" >
+                        
                     </div>
                 </form>
 
