@@ -98,7 +98,7 @@ label{
   height: 100%;
 }
 .iniciar{
-    padding:10%;
+    padding:5%;
 }
 .boton,.boton>input{
     display: flex;

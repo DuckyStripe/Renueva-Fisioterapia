@@ -1,22 +1,23 @@
 <?php
-session_start();
-require '../../php/conexion.php';
-$correo = strval($_SESSION['user']);
-$comprobar = isset($_SESSION['user']);
-if ($comprobar == "True") {
-    $emailC = mysqli_query($connect, "SELECT * FROM usuarios WHERE correo = '$correo'");
-    if (mysqli_num_rows($emailC) > 0) {
-        while ($fila = mysqli_fetch_array($emailC)) {
-            $nombres = $fila['nombre'] . " " . $fila['apellidos'];
-            $Directorio = "../citas/perfil.php";
+    require '../../php/conexion.php';
+    session_start();
+    $comprobar = isset($_SESSION['user']);
+    error_reporting(0);
+    if ($comprobar == "True") {
+        $correo = strval($_SESSION['user']);
+        $emailC = mysqli_query($connect, "SELECT * FROM usuarios WHERE correo = '$correo'");
+        if (mysqli_num_rows($emailC) > 0) {
+            while ($fila = mysqli_fetch_array($emailC)) {
+                $nombres = $fila['nombre'] . " " . $fila['apellidos'];
+                $id = $fila['iduser'];
+                $Directorio = "../citas/perfil.php";
+            }
         }
+    } else {
+        $nombres = "INICIAR SESION";
+        $Directorio = "../inicio/iniciar.php";
+        echo '<script> alert("Debes de iniciar sesion primero."); window.location.href="../inicio/iniciar.php"; </script>';
     }
-} else {
-    $nombres = "INICIAR SESION";
-    $Directorio = "../inicio/iniciar.php";
-}
-$fecha="";
-$directorio ="";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -39,13 +40,13 @@ $directorio ="";
     <title>Renueva</title>
 </head>
 <body>
-<header class=" bg-header lhead container-fluid">
-        <div class="container">
-            <a class="navbar-brand" id="logo" href="<?php echo  $Directorio ?>">
+<header class=" bg-header lhead container-fluid ">
+        <div class="container animate__animated animate__bounce">
+        <a class="navbar-brand" id="logo" href="../../index.php">
                 <img src="../../img/logo.png" alt="" width="100" height="60" class="d-inline-block">
                 Renueva Fisioterapia
         </div>
-        <div>
+        <div class="animate__animated animate__bounce">
             <a class="navbar-brand" id="logo" href="<?php echo  $Directorio ?>">
                 <h4 class="lefthead "><?php echo  $nombres ?>
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-circle" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#3B6A71" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -60,8 +61,8 @@ $directorio ="";
     </header>
     <main class="contenedor">
         <div class="contenido">
-            <h2>Agendar Cita</h2>
-            <div class="iniciar">
+            <h2 class="animate__animated animate__fadeInUp">Agendar Cita</h2>
+            <div class="iniciar animate__animated animate__zoomIn">
                 <form action="agendar.php"id="agenda" method="POST">
                     <div class="formulario align-middle">
                         <label  for="fecha">Fecha:<br>

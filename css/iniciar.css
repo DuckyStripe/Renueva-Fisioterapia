@@ -15,12 +15,6 @@ main{
     display: flex;
     align-items: center;
 }
-*{
-    margin: 0;    
-    padding: 0;     
-    -webkit-box-sizing: border-box;    
-    -moz-box-sizing: border-box;     
-    box-sizing: border-box; }
 html, body{
     height:100%
     margin 0;
@@ -196,4 +190,15 @@ label{
     padding-left: 5rem;
     margin-right: auto;
     margin-left: auto;
+}
+.info{
+    font-family: var(--letra-titulos);
+    font-weight:bold;
+    font-size: 30px;
+    color: var( --color-titulos);
+    padding-top: 2rem!important;
+    padding-bottom: 2rem!important; 
+}
+.espacio{
+    padding-top:20px;
 }

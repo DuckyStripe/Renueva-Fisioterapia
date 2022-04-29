@@ -89,7 +89,7 @@
                                 <a class="active align-middle " aria-current="page" href="#Servicios">SERVICIOS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="active align-middle" aria-current="page" href="#Nosotros">PRODUCTOS</a>
+                                <a class="active align-middle" aria-current="page" href="#productos">PRODUCTOS</a>
                             </li>
                             <li class="nav-item">
                                 <a class="active align-middle" aria-current="page" href="<?php echo $Destino4 ?>"><?php echo $boton ?></a>
@@ -210,7 +210,7 @@
                 </div>
             </div>
             <!--Productos -->
-            <div class="container">
+            <div class="container" id="productos">
                 <div class="row">
                     <h2>Productos</h2>
                 </div>
@@ -284,7 +284,7 @@
                 </div>
             </div>
             <!--Contacto -->
-            <div class="container">
+            <div class="container" id="Contacto">
                 <div class="row">
                     <h2>Contacto</h2>
                 </div>
