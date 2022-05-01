@@ -54,15 +54,15 @@ include("../../Template/headperfil.php");
             $codigo = $row['codigo_postal'];
         ?>
             <div class="columnas">
-                <div class="col1">
-                    <h4 class="info">Calle:<?php echo " " . $calle ?></h4>
-                    <h4 class="info">Exterior:<?php echo " " . $exterior ?></h4>
-                    <h4 class="info">Interior:<?php echo " " . $interior ?></h4>
+                <div class="col1t">
+                    <h4>Calle:<?php echo " " . $calle ?></h4>
+                    <h4>Exterior:<?php echo " " . $exterior ?></h4>
+                    <h4>Interior:<?php echo " " . $interior ?></h4>
                 </div>
-                <div class="col2">
-                    <h4 class="info">Estado:<?php echo " " . $estado ?></h4>
-                    <h4 class="info">Colonia:<?php echo " " . $colonia ?></h4>
-                    <h4 class="info">Codigo Postal:<?php echo " " . $codigo ?></h4>
+                <div class="col2t">
+                    <h4>Estado:<?php echo " " . $estado ?></h4>
+                    <h4>Colonia:<?php echo " " . $colonia ?></h4>
+                    <h4>Codigo Postal:<?php echo " " . $codigo ?></h4>
                 </div>
             </div>
             <div class="espacio position-relative m-12">

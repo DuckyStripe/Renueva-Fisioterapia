@@ -87,3 +87,7 @@ form{
 .padd{
     padding-left:2rem!important;
 }
+a:hover{
+    color: var(--color-contacto);
+    text-decoration: none;
+}

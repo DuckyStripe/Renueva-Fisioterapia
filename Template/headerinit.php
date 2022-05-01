@@ -14,14 +14,14 @@
     <!--Estilos link -->
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/iniciar.css">
-    <link rel="stylesheet" href="css/404.css">
+    <link rel="stylesheet" href="../../css/unavista.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <title>Renueva</title>
 </head>
 <body>
     <header class="container-fluid bg-header lhead">
         <div class="animate__animated  animate__rubberBand">
-            <a class=" navbar-brand" id="logo" href="../../index.php">
+            <a class="info navbar-brand" id="logo" href="../../index.php">
                 <img src="../../img/logo.png" alt="" width="100" height="60" class="d-inline-block">
                 Renueva Fisioterapia
             </a>

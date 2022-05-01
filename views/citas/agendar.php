@@ -1,5 +1,6 @@
 <?php
 include("../../Template/una_vista.php");
+$fecha=$_POST['fecha'];
 ?>
 <main class="contenedor centrar">
     <div class="animate__animated animate__zoomIn">
@@ -36,11 +37,11 @@ include("../../Template/una_vista.php");
                 </select>
             </label><br>
             </label>
-            <label for="text">Comentarios:<br>
-                <textarea class="comment" type="text" name="comentario"required></textarea><br>
+            <label for="text">Comentarios:*<br>
+                <textarea class="comment inp" type="text" name="comentario" placeholder="Explique su molestia" value="" required></textarea><br>
             </label><br>
             <div class="espacio position-relative m-12">
-                <input type="submit" class="espacio position-absolute top-10 start-50 translate-middle  btn btn-primary botonh" value="Guardar Dirección">
+                <input type="submit" class="espacio position-absolute top-10 start-50 translate-middle  btn btn-primary botonh" value="Agendar">
             </div>
 
         </form>

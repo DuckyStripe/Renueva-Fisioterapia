@@ -109,7 +109,6 @@ h4{
     float: right;
     Text-align: left;
     width: 50%;
-    padding-left: 5%;
 }
 .col2t{
     display: block;
@@ -137,6 +136,7 @@ h4{
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+
 .col1>label{
     font-family: var(--letra-titulos);
     font-size: 20px;
@@ -168,4 +168,8 @@ h4{
     width: 60vh!important;
     padding-left: 20px;
     padding: 10px;
+}
+a:hover{
+    color: var(--color-contacto);
+    text-decoration: none;
 }

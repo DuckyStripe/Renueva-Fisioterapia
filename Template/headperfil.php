@@ -52,12 +52,12 @@ if ($comprobar == "True") {
         <div class="container animate__animated animate__bounce" id="menu">
             <ul>
                 <li>            
-                    <a class="animate__animated  animate__rubberBand navbar-brand logo"  href="../../index.php">
+                    <a class="info animate__animated  animate__rubberBand navbar-brand logo"  href="../../index.php">
                     <img src="../../img/logo.png" alt="" width="100" height="60" class="d-inline-block">
                         Renueva Fisioterapia
                     </a>
                 </li>
-                <li class="item-r animate__animated  animate__rubberBand">
+                <li class="info item-r animate__animated  animate__rubberBand">
                     <a class="navbar-brand logo"  href="../../php/loguout.php">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#3B6A71" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -66,7 +66,7 @@ if ($comprobar == "True") {
                         </svg>
                     </a>  
                 </li>
-                <li class="item-r animate__animated  animate__rubberBand">
+                <li class="info item-r animate__animated  animate__rubberBand">
                     <a class="navbar-brand logo" href="../shop/carrito.php">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="#3B6A71" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -79,7 +79,7 @@ if ($comprobar == "True") {
 
                 </li >
 
-                <li class="item-nr">
+                <li class="info item-nr">
                     <a class="navbar-brand " href="<?php echo  $Directorio ?>">        
                         <?php echo  $nombres ?>
                     </a>

@@ -1,6 +1,5 @@
-/*
-KgsATr0G>_auS~q%*/
-use id18535924_renueva;
+SET NAMES 'utf8';
+use id18841401_renueva;
 
 create table categoria(
     id_categoria INTEGER NOT NULL AUTO_INCREMENT,
@@ -65,7 +64,7 @@ CREATE table direccion(
     iduser int not null unique,
 	calle varchar(60) not null,
 	exterior varchar(5) not null,
-    interior varchar(5) not null,
+    interior varchar(5),
 	id_estado int not null,
 	colonia varchar(30) not null,
 	codigo_postal int(5) not null,
@@ -93,7 +92,7 @@ create table citas(
     fecha varchar(10) not null,
     idhora int not null,
     id_servicio int not null,
-    comentario varchar(50) not null,
+    comentario varchar(50),
     primary key (id_citas),
     FOREIGN KEY (iduser) REFERENCES usuarios(iduser),
     FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio),
@@ -236,9 +235,9 @@ INSERT INTO estados(estado)VALUES('Zacatecas');
 -- Insertando Direccion
 
 
-/*INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test@gmail.com','123123123','123123123123');
+INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test@gmail.com','123123123','123123123123');
 INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
-*/
+
 -- Insertando Servicios
 INSERT INTO servicios (servicio) Values("Prevención, mantenimiento y recuperación de la funcionalidad del cuerpo.");
 INSERT INTO servicios (servicio) Values("Acción preventiva de lesiones.");
@@ -272,10 +271,9 @@ INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-04-
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-13',5,1,'Test');
 
 INSERT INTO inventario(inv_date,inv_total,Ar_id) VALUES('2022-12-12',20,1);
-*/
 
-/*
 SELECT * FROM direccion WHERE iduser=5;
+
 SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1);
 /*SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1)
 

@@ -126,3 +126,6 @@ label,textarea{
 #agenda{
     padding-top: 2rem;
 }
+.info:hover{
+    color: var( --color-contacto);
+}
