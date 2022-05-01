@@ -38,16 +38,4 @@
         }
     }
 
-
-
-
-/*
-    $consulta = mysqli_query($connect,$que);
-    $array = mysqli_fetch_array($consulta);
-    if ($array['contar']>0){
-        $_SESSION['user'] = $user;
-        header("location: ../index.php");
-    }else{
-        echo '<script> alert("Fallo en inicio de sesión"); window.location.href="../index.php"; </script>';
-    }*/
 ?>
