@@ -1,5 +1,6 @@
 <?php
 include("../../Template/headerinit.php");
+$retorno='index';
 ?>
 <main>
     <div class="animate__animated animate__zoomIn">
@@ -36,6 +37,7 @@ include("../../Template/headerinit.php");
                     <div class="columnas">
                         <div class="col1_1">
                             <label for="name">Nombre:<br>
+                                <input type="hidden" name="retorno" value="<?php  echo $retorno ?>">
                                 <input class="res" type="name" name="name" placeholder="Jhon " required><br>
                             </label>
                             <label for="email">Correo electrónico:<br>

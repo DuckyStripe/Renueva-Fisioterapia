@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'conexion.php';
-    $retorno=$_POST["retorno"];
+    $id_rol = $_POST["rol"];
     $name = $_POST["name"];
     $lastname = $_POST["lastname"];
     $number = $_POST["numero"];
@@ -17,7 +17,7 @@
     }else{
         if($password == $passwordver){
             $paswordf=password_hash($password,PASSWORD_DEFAULT);
-            $insertar = "INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'$name','$lastname','$email','$paswordf','$number')";
+            $insertar = "INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES ($id_rol,'$name','$lastname','$email','$paswordf','$number')";
             if(mysqli_query($connect, $insertar)){
                 //Envio de correo electronico
                 $asunto = "Bienvenido a Renueva Fisioterapia";
@@ -30,11 +30,7 @@
                 } else {
                     echo "Email sending failed...";
                 }
-                if($retorno=="registro"){
-                    echo '<script> alert("Registro Exitoso, Se ha enviado un correo electronico."); window.location.href="../views/shop/admin.php"; </script>';
-                }elseif($retorno=="index"){
-                echo '<script> alert("Registro Exitoso::::, Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
-            }
+                echo '<script> alert("Registro Exitoso, Se ha enviado un correo electronico."); window.location.href="../views/shop/admin.php?action=personal"; </script>';
             }else {
                 echo "Error: " . $insertar . "<br>" . mysqli_error($connect);
            }

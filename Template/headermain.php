@@ -48,7 +48,7 @@
                                 $Destino2 = "views/citas/historial.php";
                                 $Destino3 = "views/shop/shop.php";
                                 $Destino4="views\shop\admin.php";
-                                $boton = "PANEL ADMIN";
+                                $boton = "ADMIN";
                                 break;
                             case 2:
                                 $Destino1 = "views/citas/agendarfecha.php";
@@ -62,7 +62,7 @@
                                 $Destino2 = "views/citas/historial.php";
                                 $Destino3 = "views/shop/shop.php";
                                 $Destino4="views\shop\personal.php";
-                                $boton = "PANEL PERSONAL";
+                                $boton = "PANEL";
                                 break;
                             default:
                         }

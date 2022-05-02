@@ -1,12 +1,15 @@
-<?php
-include("../../Template/unavista.php");
+<?php 
+    $id=$_GET['id'];
+    echo $id;
+    $retorno="retorno";
 ?>
-
 <main class="contenedor centrar">
     <div class="animate__animated animate__zoomIn">
-    <h2 class=" espacio animate__animated animate__fadeInUp">Agendar Fecha:</h2> <br>
-        <form action="agendar.php" id="agenda" method="POST">
+    <h2 class=" espacio animate__animated animate__fadeInUp">AGENDAR FECHA:</h2> <br>
+        <form action="admin.php?action=agendar" id="agenda" method="POST">
             <label class="espacio" for="fecha">Fecha:<br>
+                <input hidden type="text" name="retorno" id="retorno"value="<?php echo $retorno ?>">
+                <input hidden type="text" name="id" id="id"value="<?php echo $id ?>">
                 <input class="inp" type="date" name="fecha" id="fecha" onchange="getValueInput()" require><br>
                 <script>
                     const getValueInput = () => {
@@ -44,7 +47,3 @@ include("../../Template/unavista.php");
 
     </div>
 </main>
-<!--Footer -->
-<?php
-include("../../Template/footer.php");
-?>
