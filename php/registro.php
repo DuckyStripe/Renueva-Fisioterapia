@@ -23,7 +23,13 @@
     $VerEmail=mysqli_query($connect,$Cemail);
     $Vernumber = mysqli_query($connect,$Cnumber);
     if(mysqli_num_rows($VerEmail) > 0  OR  mysqli_num_rows($Vernumber) > 0){
-        echo '<script> alert("Este usuario ya esta registrado"); window.location.href="../views/inicio/iniciar.php"; </script>';
+        if($retorno=="retorno"){
+            echo '<script> alert("Usuario ya registrado."); window.location.href="../views/shop/admin.php?action=agendarcliente"; </script>';
+        }elseif($retorno=="registro"){
+        echo '<script> alert("Usuario ya registrado."); window.location.href="../views/shop/admin.php"; </script>';
+        }else{
+            echo '<script> alert("Usuario ya registrado."); window.location.href="../index.php"; </script>';
+        }
     }else{
         if($password == $passwordver){
             $paswordf=password_hash($password,PASSWORD_DEFAULT);
@@ -41,11 +47,11 @@
                     echo "Email sending failed...";
                 }
                 if($retorno=="registro"){
-                    echo '<script> alert("Registro Exitoso, Se ha enviado un correo electronico."); window.location.href="../views/shop/admin.php"; </script>';
+                    echo '<script> alert("Registro Exitoso., Se ha enviado un correo electronico."); window.location.href="../views/shop/admin.php"; </script>';
                 }elseif($retorno=="index"){
-                echo '<script> alert("Registro Exitoso::::, Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
+                echo '<script> alert("Registro Exitoso., Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
             }elseif($regreso=="clientes"){
-                echo '<script> alert("Registro Exitoso::::, Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
+                echo '<script> alert("Registro Exitoso., Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
             }
             }else {
                 echo "Error: " . $insertar . "<br>" . mysqli_error($connect);

@@ -6,14 +6,12 @@ $buscar = $_POST["buscar"];
         <h2 class="animate__animated animate__fadeInUp">BUSCAR CLIENTE:</h2>
     </div>
     <div class="columnas">
-        <div class="col2">
+    <div class="col1 animate__animated animate__zoomIn">
             <form action="admin.php?action=agendarcliente" method="post">
                 <input class="inp animate__animated animate__zoomIn" type="search" name="buscar" placeholder="Nombre, Correo, apellido." required>
                 <input class="btnn btn-primary botonhh" type="submit" value="Buscar">
+                <a href="admin.php?action=registro" class="btnn btn-primary botonhh">Nuevo</a>
             </form>
-        </div>
-        <div class="col2">
-            <a href="admin.php?action=registro" class="btnn btn-primary botonhh">Nuevo</a>
         </div>
     </div>
 </div>
