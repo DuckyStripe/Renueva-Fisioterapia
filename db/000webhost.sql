@@ -1,9 +1,5 @@
 SET NAMES 'utf8';
-DROP DATABASE IF EXISTS renueva;
-CREATE DATABASE IF NOT EXISTS renueva DEFAULT CHARACTER SET utf8;
-DROP database renueva;
-create database renueva;
-use renueva;
+use id18841401_renueva;
 
 create table categoria(
     id_categoria INTEGER NOT NULL AUTO_INCREMENT,
@@ -31,12 +27,14 @@ create table articulod(
 )DEFAULT CHARACTER SET utf8;
 
 create table pedido(
-    idventa INTEGER NOT NULL ,
+    idventa INTEGER NOT NULL auto_increment,
+    iduser INTEGER NOT NULL,
     fecha_hora varchar(50) not null,
     cantidad INTEGER NOT NULL,
     total decimal (11,2) not null,
     estado varchar(20) not null,
-    PRIMARY KEY (idventa)
+    PRIMARY KEY (idventa),
+     FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
 )DEFAULT CHARACTER SET utf8;
 
 create table rol(
@@ -66,9 +64,9 @@ create table usuarios(
 CREATE table direccion(
 	id_direccion int not null auto_increment,
     iduser int not null unique,
-	calle varchar(100) not null,
+	calle varchar(60) not null,
 	exterior varchar(5) not null,
-    interior varchar(5) not null,
+    interior varchar(5),
 	id_estado int not null,
 	colonia varchar(30) not null,
 	codigo_postal int(5) not null,
@@ -80,7 +78,7 @@ CREATE table direccion(
 
 create table servicios(
     id_servicio int not null auto_increment,
-    servicio varchar(100) not null,
+    servicio varchar(60) not null,
     primary key (id_servicio)
 )DEFAULT CHARACTER SET utf8;
 
@@ -96,7 +94,7 @@ create table citas(
     fecha varchar(10) not null,
     idhora int not null,
     id_servicio int not null,
-    comentario varchar(50) not null,
+    comentario varchar(50),
     primary key (id_citas),
     FOREIGN KEY (iduser) REFERENCES usuarios(iduser),
     FOREIGN KEY (id_servicio) REFERENCES servicios(id_servicio),
@@ -108,12 +106,10 @@ create table citas(
 create table Pedido_Articulo(
     pd_id INTEGER NOT NULL AUTO_INCREMENT,
     Ar_id INTEGER NOT NULL,
-    iduser INT NOT NULL,
     idventa INTEGER NOT NULL,
     PRIMARY KEY (pd_id),
     FOREIGN KEY (Ar_id) REFERENCES articulod(Ar_id),
     FOREIGN KEY (idventa) REFERENCES pedido(idventa),
-    FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
 )DEFAULT CHARACTER SET utf8;
 
 create table inventario(
@@ -155,7 +151,6 @@ BEGIN
 END; //
 
 DELIMITER ;
-
 
 /*Insertando Categorias*/
 INSERT INTO categoria(nombre_cat) Values ('Electroterapia');
@@ -220,11 +215,9 @@ INSERT INTO estados(estado)VALUES('Zacatecas');
 -- Insertando Direccion
 
 
-INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes12@gmail.com','123123322123','123321223123123');
-INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes13@gmail.com','1231323312223','1231231323123');
-INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes144@gmail.com','1233123322123','1232213231323123');
-INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes11@gmail.com','1231233122233','123313223123');
-INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes14@gmail.com','1223123322123','12312323123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (1,'Admin','Demo','demo@admin.com','$2y$10$lM53S8PwIrmtNkWXQqCthuuCah1JuhqCYsReajf/1nRyeYc/QNq/a','55-5555-5555');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (3,'Empleado','Demo','demo@empleado.com','$2y$10$H5vT7lrjg6y.th/k/UipY.LiQtVflw9FA63JQVZ.CoENjqMPuP9T.','55-5555-5556');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'User','Demo','demo@user.com','$2y$10$PS2nGiJbtI3UjfP.mg/4EOazHwcoI9P7GtonhWO4IjBwX5yrR2iBG','55-5555-5557');
 INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
 
 -- Insertando Servicios
@@ -246,16 +239,6 @@ INSERT INTO hora (hora) VALUES('17:00');
 INSERT INTO hora (hora) VALUES('18:00');
 INSERT INTO hora (hora) VALUES('19:00');
 INSERT INTO hora (hora) VALUES('20:00');
-SELECT iduser,nombre,apellidos,correo,telefono FROM usuarios WHERE id_rol=2 AND (iduser=1);
-UPDATE direccion SET calle = 'qweqweqwe',exterior='12',interior='23',id_estado='1',colonia='45qweqwe',codigo_postal = 12345 WHERE iduser = 1; 
-UPDATE direccion SET calle = 'Lopez de santana',exterior='34',interior='12',id_estado='16',colonia='Calle Sahara11',codigo_postal = 12365 WHERE (iduser = 1 AND id_direccion=1 );
-Select * FROM direccion WHERE (iduser = 1 AND id_direccion=1 );
-SELECT count(*) FROM usuarios WHERE correo='tes144@gm5ail.com' OR telefono='';
-SELECT count(*) FROM usuarios WHERE correo='$correo' OR telefono='$telefono';
-SELECT count(*) FROM usuarios WHERE correo='lacp532.laa@gmail.com';
-
-SELECT * FROM direccion WHERE iduser=9;
-
 /*
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',1,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',2,1,'Test');
@@ -270,22 +253,12 @@ INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-04-
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-13',5,1,'Test');
 
 INSERT INTO inventario(inv_date,inv_total,Ar_id) VALUES('2022-12-12',20,1);
-SELECT a.id_citas,a.iduser,b.nombre,b.apellidos,b.correo, a.fecha, a.idhora, c.hora , d.id_servicio ,d.servicio, a.comentario FROM citas a INNER JOIN usuarios b ON  a.iduser= b.iduser INNER JOIN hora c ON a.idhora= c.idhora INNER JOIN servicios d ON a.id_servicio = d.id_servicio WHERE b.apellidos= "tesat@gmail.com" OR b.nombre="tesat@gmail.com" OR b.correo = "tesat@gmail.com";
-SELECT COUNT(*) FROM citas WHERE iduser=1;
-SELECT a.iduser,a.id_rol,b.rol FROM usuarios a INNER JOIN rol b ON a.id_rol = b.id_rol WHERE (a.iduser=4);
-SELECT a.id_citas,a.iduser,b.nombre,b.apellidos,b.correo, a.fecha, a.idhora, c.hora , d.id_servicio ,d.servicio, a.comentario FROM citas a INNER JOIN usuarios b ON  a.iduser= b.iduser INNER JOIN hora c ON a.idhora= c.idhora INNER JOIN servicios d ON a.id_servicio = d.id_servicio;
-SELECT * FROM usuarios WHERE id_rol=2;
-SELECT count(*) FROM citas WHERE iduser=1;
-SELECT a.iduser,b.id_rol,a.id_rol,a.nombre,a.apellidos,a.correo,a.telefono, b.rol FROM rol b INNER JOIN usuarios a ON a.id_rol=b.id_rol WHERE (apellidos= 'Luis Alejandro' OR nombre='Luis Alejandro' OR correo = 'Luis Alejandro') AND ( a.id_rol=1 OR a.id_rol=3);
-SELECT iduser,id_rol,nombre,apellidos,correo,telefono FROM usuarios  WHERE (apellidos= 'Lola meraz' OR nombre='Lola meraz' OR correo = 'Lola meraz') AND (id_rol=1 OR id_rol=3);
-SELECT a.iduser,b.id_rol,a.id_rol,a.nombre,a.apellidos,a.correo,a.telefono, b.rol FROM usuarios a INNER JOIN rol b ON a.id_rol=b.id_rol WHERE (apellidos= 'Lola meraz' OR nombre='Lola meraz' OR correo = 'Lola meraz') AND ( id_rol=1 OR id_rol=3);
-SELECT iduser,id_rol,nombre,apellidos,correo,telefono FROM usuarios WHERE id_rol=1 OR id_rol=3;
-SELECT iduser,id_rol,nombre,apellidos,correo,telefono FROM usuarios WHERE id_rol=2;
-/*
+
+SELECT * FROM direccion WHERE iduser=5;
 
 SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1);
 /*SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1)
-SELECT a.id_citas,a.iduser,b.nombre,b.apellidos,b.correo, a.fecha, a.idhora, c.hora , d.id_servicio ,d.servicio, a.comentario FROM citas a INNER JOIN usuarios b ON  a.iduser= b.iduser INNER JOIN hora c ON a.idhora= c.idhora INNER JOIN servicios d ON a.id_servicio = d.id_servicio WHERE b.apellidos= "Luis Alejandro" OR b.nombre="Luis Alejandro" OR b.correo = "Luis Alejandro";
+
 SELECT COUNT(id_direccion)  FROM usuarios WHERE iduser=2;
 /*
 SELECT * FROM citas WHERE id_citas = 1;
