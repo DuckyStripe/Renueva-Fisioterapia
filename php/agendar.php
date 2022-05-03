@@ -4,7 +4,11 @@
     $horario=$_POST["horario"] ; 
     $servicio=$_POST["servicio"];
     $comentario=$_POST["comentario"];
-    $retorno=$_POST['retorno'];
+    if(isset($_POST['retorno'])){
+        $retorno=$_POST['retorno'];
+    }else{
+        $retorno=NULL;
+    }
     $id=$_POST['id'];
     $query="INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES($id,'$fecha',$horario,$servicio,'$comentario')";
     $consulta = mysqli_query($connect,$query);

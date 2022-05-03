@@ -2,8 +2,6 @@
     $id=$_POST['id'];
     $fecha=$_POST['fecha'];
     $retorno=$_POST['retorno'];
-    echo $fecha." ".$id;
-
 ?>
 
 <main class="contenedor centrar">

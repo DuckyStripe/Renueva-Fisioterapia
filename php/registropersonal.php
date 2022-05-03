@@ -13,7 +13,7 @@
     $VerEmail=mysqli_query($connect,$Cemail);
     $Vernumber = mysqli_query($connect,$Cnumber);
     if(mysqli_num_rows($VerEmail) > 0  OR  mysqli_num_rows($Vernumber) > 0){
-        echo '<script> alert("Este usuario ya esta registrado"); window.location.href="../views/inicio/iniciar.php"; </script>';
+        echo '<script> alert("Este usuario ya esta registrado"); window.location.href="../views/shop/admin.php?action=registropersonal"; </script>';
     }else{
         if($password == $passwordver){
             $paswordf=password_hash($password,PASSWORD_DEFAULT);

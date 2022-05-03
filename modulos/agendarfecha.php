@@ -1,6 +1,5 @@
 <?php 
     $id=$_GET['id'];
-    echo $id;
     $retorno="retorno";
 ?>
 <main class="contenedor centrar">

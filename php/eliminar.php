@@ -1,7 +1,13 @@
 <?php 
     require 'conexion.php';
     $id=$_GET['eliminar'];
-    $retorno=$_GET['retorno'];
+    error_reporting(0);
+    if(isset($_GET['retorno'])){
+        $retorno=$_GET['retorno'];
+    }else{
+        $retorno=NULL;
+    }
+
     $query="DELETE FROM citas WHERE id_citas = $id ";
     $verifica = mysqli_query($connect,"SELECT * FROM citas WHERE id_citas = $id");
     if($verifica){

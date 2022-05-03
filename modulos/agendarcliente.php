@@ -1,6 +1,5 @@
 <?php
 $buscar = $_POST["buscar"];
-echo $buscar;
 ?>
 <div class="contenedor">
     <div class="iniciar">

@@ -66,7 +66,7 @@ create table usuarios(
 CREATE table direccion(
 	id_direccion int not null auto_increment,
     iduser int not null unique,
-	calle varchar(60) not null,
+	calle varchar(100) not null,
 	exterior varchar(5) not null,
     interior varchar(5) not null,
 	id_estado int not null,
@@ -80,7 +80,7 @@ CREATE table direccion(
 
 create table servicios(
     id_servicio int not null auto_increment,
-    servicio varchar(60) not null,
+    servicio varchar(100) not null,
     primary key (id_servicio)
 )DEFAULT CHARACTER SET utf8;
 
@@ -220,12 +220,11 @@ INSERT INTO estados(estado)VALUES('Zacatecas');
 -- Insertando Direccion
 
 
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','tes1@gmail.com','1231233123','1231323123123');
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test2@gmail.com','1231233123','1233123123123');
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test3@gmail.com','1231233123','31231233123123');
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test4@gmail.com','1231233123','123123123123');
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test5@gmail.com','1231233123','1231231323123');
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test6@gmail.com','1231233123','1231233123123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes12@gmail.com','123123322123','123321223123123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes13@gmail.com','1231323312223','1231231323123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes144@gmail.com','1233123322123','1232213231323123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes11@gmail.com','1231233122233','123313223123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'Luis Alejandro','Canchola Pedraza','tes14@gmail.com','1223123322123','12312323123');
 INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
 
 -- Insertando Servicios
@@ -247,7 +246,17 @@ INSERT INTO hora (hora) VALUES('17:00');
 INSERT INTO hora (hora) VALUES('18:00');
 INSERT INTO hora (hora) VALUES('19:00');
 INSERT INTO hora (hora) VALUES('20:00');
+SELECT iduser,nombre,apellidos,correo,telefono FROM usuarios WHERE id_rol=2 AND (iduser=1);
+UPDATE direccion SET calle = 'qweqweqwe',exterior='12',interior='23',id_estado='1',colonia='45qweqwe',codigo_postal = 12345 WHERE iduser = 1; 
+UPDATE direccion SET calle = 'Lopez de santana',exterior='34',interior='12',id_estado='16',colonia='Calle Sahara11',codigo_postal = 12365 WHERE (iduser = 1 AND id_direccion=1 );
+Select * FROM direccion WHERE (iduser = 1 AND id_direccion=1 );
+SELECT count(*) FROM usuarios WHERE correo='tes144@gm5ail.com' OR telefono='';
+SELECT count(*) FROM usuarios WHERE correo='$correo' OR telefono='$telefono';
+SELECT count(*) FROM usuarios WHERE correo='lacp532.laa@gmail.com';
 
+SELECT * FROM direccion WHERE iduser=9;
+
+/*
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',1,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',2,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',3,1,'Test');

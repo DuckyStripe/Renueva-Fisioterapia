@@ -10,22 +10,23 @@
     $Apass = implode($pass);
     $password = $Apass;
     $passwordver = $Apass;
+    $regreso = "personal";
     ?>
-    <div class="contenedor animate__animated animate__zoomIn">
+    <div class="animate__animated animate__zoomIn">
         <div class="columnas">
             <form action="../../php/registropersonal.php" method="POST">
-                <h2 class="espacio">REGISTRAR PERSONAL:</h2>
-                <div class="col1">
+                <h2 class="espacio">Registrar Personal</h2>
+                <div class="col1_11">
                     <label for="name">Nombre:<br>
                         <input type="hidden" name="password" value="<?php echo $password ?>">
                         <input type="hidden" name="passwordver" value="<?php echo $passwordver ?>">
+                        <input type="hidden" name="retorno" value="<?php echo $retorno ?>">
                         <input class="ress" type="name" name="name" placeholder="Jhon " required><br>
                     </label>
                     <label for="email">Correo electrónico:<br>
                         <input class="ress" type="email" name="email" placeholder="example@example.com" required><br>
                     </label>
-                    <label for="name">Rol:*<br>
-                        <select class="ress" name="rol" required>
+                    <select class="ress" name="rol" required>
                             <option value="" selected>Seleccione un rol</option>
                             <?php
                             $query = "SELECT * FROM rol;";
@@ -36,9 +37,8 @@
                             <?php }
                             mysqli_free_result($consulta); ?>
                         </select>
-                    </label><br>
                 </div>
-                <div class="col1">
+                <div class="col1_11">
                     <label for="name">Apellidos:<br>
                         <input class="ress" type="name" name="lastname" placeholder="Doe" required><br>
                     </label>
@@ -47,16 +47,17 @@
                     </label>
                 </div><br>
                 <label>Contraseña:
-                    <h2><?php echo $password ?></h2>
-                </label>
-
+                        <h2><?php echo $password ?></h2>
+                    </label>
                 <div class="col4">
 
                     <div class="espacio position-relative m-12">
                         <input type="submit" class=" position-absolute top-20 start-50 translate-middle  center-block btn btn-primary botonh" value="Registrar">
                     </div>
                 </div>
-            </form>
         </div>
+
+        </form>
+    </div>
     </div>
 </main>

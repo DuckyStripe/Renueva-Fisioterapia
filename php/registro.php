@@ -2,6 +2,16 @@
     session_start();
     require 'conexion.php';
     $retorno=$_POST["retorno"];
+    if (isset($_GET['retorno'])) {
+        $retorno = $_GET['retorno'];
+    } elseif (isset($_POST['regreso'])) {
+        $regreso = $_POST['regreso'];
+    }elseif(isset($_POST['retorno'])){
+        $retorno = $_POST['retorno'];
+    }else {
+        $regreso = NULL;
+        $retorno = NULL;
+    }
     $name = $_POST["name"];
     $lastname = $_POST["lastname"];
     $number = $_POST["numero"];
@@ -33,6 +43,8 @@
                 if($retorno=="registro"){
                     echo '<script> alert("Registro Exitoso, Se ha enviado un correo electronico."); window.location.href="../views/shop/admin.php"; </script>';
                 }elseif($retorno=="index"){
+                echo '<script> alert("Registro Exitoso::::, Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
+            }elseif($regreso=="clientes"){
                 echo '<script> alert("Registro Exitoso::::, Se ha enviado un correo electronico."); window.location.href="../index.php"; </script>';
             }
             }else {
