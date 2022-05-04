@@ -29,9 +29,9 @@ if ((strlen($correo) > 0) and (strlen($telefono) > 0)) {
             } elseif ($regreso == "clientes") {
                 echo '<script> alert("Datos registrados correctamente."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
             }else{
-                echo '<script> alert("Registro Exitoso"); window.location.href="../index.php"; </script>';}
+                echo '<script> alert("Registro Exitoso"); window.location.href="../views/shop/admin.php?action=clientes"; </script>';}
         } else {
-            echo '<script> alert("Fallo en el Registro."); window.location.href="../views/citas/perfil.php"; </script>';
+            echo '<script> alert("Fallo en el Registro."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
         }
     } else {
         echo '<script> alert("El correo o el numero ya estan registrados."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
@@ -50,9 +50,9 @@ if ((strlen($correo) > 0) and (strlen($telefono) > 0)) {
             } elseif ($regreso == "clientes") {
                 echo '<script> alert("Correo actualizado correctamente."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
             }else{
-            echo '<script> alert("Registro Exitoso"); window.location.href="../index.php"; </script>';}
+            echo '<script> alert("Registro Exitoso"); window.location.href="../views/shop/admin.php?action=clientes"; </script>';}
         } else {
-            echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/citas/perfil.php"; </script>';
+            echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
         }
     } else {
         echo '<script> alert("El correo  ya esta registrado."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
@@ -71,12 +71,12 @@ if ((strlen($correo) > 0) and (strlen($telefono) > 0)) {
             } elseif ($regreso == "clientes") {
                 echo '<script> alert("Telefono actualizado correctamente."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
             }else{
-                echo '<script> alert("Registro Exitoso"); window.location.href="../index.php"; </script>';}
+                echo '<script> alert("Registro Exitoso"); window.location.href="../views/shop/admin.php?action=clientes"; </script>';}
         } else {
-            echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/citas/perfil.php"; </script>';
+            echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
         }
     } else {
-        echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/citas/perfil.php"; </script>';
+        echo '<script> alert("Fallo en el Registro..."); window.location.href="../views/shop/admin.php?action=clientes"; </script>';
     }
 } else {
     echo '<script> alert("Fallo en el registro"); window.location.href="../views/shop/admin.php?action=clientes"; </script>';

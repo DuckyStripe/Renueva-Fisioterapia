@@ -213,6 +213,9 @@ include('../../Template/admin.php');
             case 'agendarfecha':
                 include('../../modulos/agendarfecha.php');
             break;
+            case 'modal':
+                include('../../modulos/modal.php');
+            break;
             case 'citas':
                 include('../../modulos/citas.php');
                 break;

@@ -61,7 +61,7 @@ $total = number_format($totalp, 2);
                                     <td colspan="1">
                                         <?php
                                         $link = "../shop/admin.php?action=editproducto&id=" . $row['Ar_id'];
-                                        $link2 = "../shop/admin.php?action=eliminar&id=" . $row['Ar_id'];
+                                        $link2 = "../shop/admin.php?action=modal&eliminar=producto&id=" . $row['Ar_id'];
                                         ?>
                                         <a href="<?php echo $link ?>" class="btn" onlick="">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#495371" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -70,7 +70,7 @@ $total = number_format($totalp, 2);
                                                 <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
                                                 <line x1="16" y1="5" x2="19" y2="8" />
                                         </a>
-                                        <a href="#" class="hero__cta" id="open" onlick="">
+                                        <a href="<?php echo $link2 ?>" class="btn" id="open" onlick="">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <line x1="4" y1="7" x2="20" y2="7" />
@@ -107,7 +107,7 @@ $total = number_format($totalp, 2);
                                             <line x1="16" y1="5" x2="19" y2="8" />
                                             </svg>
                                         </a>
-                                        <a href="#" class="hero__cta" >
+                                        <a href="<?php echo $link2 ?>" class="btn" >
                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="20" height="20" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ff2825" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <line x1="4" y1="7" x2="20" y2="7" />
@@ -129,22 +129,4 @@ $total = number_format($totalp, 2);
                 </table>
             </div>
         </div>
-
-        <div id="modal_container" class="modal-container">
-            <div class="modal">
-                <h1>Ventana Modal</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque assumenda dignissimos illo explicabo natus quia repellat, praesentium voluptatibus harum ipsam dolorem cumque labore sunt dicta consectetur, nesciunt maiores delectus maxime?
-                </p>
-                <button id="close">Cerrar</button>
-            </div>
-        </div>
-        <section class="modal ">
-            <div class="modal__container">
-                <img src="images/modal.svg" class="modal__img">
-                <h2 class="modal__title">¡Bienvenido al sitio!</h2>
-                <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-                <a href="#" class="modal__close">Cerrar Modal</a>
-            </div>
-        </section>
 </main>
