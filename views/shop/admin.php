@@ -109,7 +109,7 @@ include('../../Template/admin.php');
         <?php } else {
         ?>
             <li>
-                <a href="admin.php?action=registro">
+                <a href="admin.php?action=agendarcliente">
                     <i class='bx bx-calendar-alt'></i>
                     <span class="links_name">
                         <h3>Agendar Cita</h3>
@@ -231,8 +231,14 @@ include('../../Template/admin.php');
             case 'personal':
                 include('../../modulos/personal.php');
             break;
+            case 'editproducto':
+                include('../../modulos/editproducto.php');
+            break;
             case 'settings':
                 include('../../modulos/settings.php');
+            break;
+            case 'nuevoproducto':
+                include('../../modulos/nuevoproducto.php');
             break;
             default:
                 include ('../../modulos/registro.php');
@@ -242,7 +248,7 @@ include('../../Template/admin.php');
 </section>
 
 <script src="../../js/script.js"></script>
-
+<script src="../../js/main.js"></script>
 </body>
 
 </html>

@@ -11,44 +11,26 @@ create table categoria(
     PRIMARY KEY (id_categoria)
 )DEFAULT CHARACTER SET utf8;
 
-CREATE TABLE images(
-	idimg int NOT NULL AUTO_INCREMENT,
-    img longblob NOT NULL,
-    primary key(idimg)
-)DEFAULT CHARACTER SET utf8;
 create table articulod(
     Ar_id INTEGER NOT NULL AUTO_INCREMENT,
     id_categoria integer not null,
-    idimg integer,
+    ganancia decimal(11,2) not null,
     Ar_descripcion varchar(200) not null,
     Ar_precioVenta  decimal(11,2) not null,
     Ar_nombre varchar(50) not null,
     Ar_stock integer not null,
     Ar_precioCosto decimal(11,2) not null,
+    img longblob NOT NULL,
+    inv_date varchar(14) not null,
+    lastinv_date varchar(14) not null,
     PRIMARY KEY (Ar_id),
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria),
-	FOREIGN KEY (idimg) REFERENCES images(idimg)
-)DEFAULT CHARACTER SET utf8;
-
-create table pedido(
-    idventa INTEGER NOT NULL ,
-    fecha_hora varchar(50) not null,
-    cantidad INTEGER NOT NULL,
-    total decimal (11,2) not null,
-    estado varchar(20) not null,
-    PRIMARY KEY (idventa)
-)DEFAULT CHARACTER SET utf8;
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+)DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table rol(
     id_rol int not null auto_increment,
     rol varchar(20) not null,
     primary key (id_rol)
-)DEFAULT CHARACTER SET utf8;
-
-create table estados(
-	id_estado int not null auto_increment,
-    estado varchar(30)not null,
-    primary key (id_estado)
 )DEFAULT CHARACTER SET utf8;
 
 create table usuarios(
@@ -63,26 +45,12 @@ create table usuarios(
     FOREIGN KEY (id_rol) REFERENCES rol(id_rol)
 )DEFAULT CHARACTER SET utf8;
 
-CREATE table direccion(
-	id_direccion int not null auto_increment,
-    iduser int not null unique,
-	calle varchar(60) not null,
-	exterior varchar(5) not null,
-    interior varchar(5),
-	id_estado int not null,
-	colonia varchar(30) not null,
-	codigo_postal int(5) not null,
-	primary key(id_direccion),
-	FOREIGN KEY (id_estado) REFERENCES estados(id_estado),
-    FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
-)DEFAULT CHARACTER SET utf8;
-
-
 create table servicios(
     id_servicio int not null auto_increment,
     servicio varchar(60) not null,
     primary key (id_servicio)
 )DEFAULT CHARACTER SET utf8;
+
 
 create table hora(
     idhora int not null auto_increment,
@@ -103,27 +71,49 @@ create table citas(
     FOREIGN KEY (idhora) REFERENCES hora(idhora)
 )DEFAULT CHARACTER SET utf8;
 
+create table estados(
+	id_estado int not null auto_increment,
+    estado varchar(30)not null,
+    primary key (id_estado)
+)DEFAULT CHARACTER SET utf8;
 
+
+CREATE table direccion(
+	id_direccion int not null auto_increment,
+    iduser int not null unique,
+	calle varchar(60) not null,
+	exterior varchar(5) not null,
+    interior varchar(5),
+	id_estado int not null,
+	colonia varchar(30) not null,
+	codigo_postal int(5) not null,
+	primary key(id_direccion),
+	FOREIGN KEY (id_estado) REFERENCES estados(id_estado),
+    FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
+)DEFAULT CHARACTER SET utf8;
+
+create table pedido(
+    idventa INTEGER NOT NULL auto_increment,
+    iduser INTEGER NOT NULL,
+    fecha varchar(50) not null,
+    total decimal (11,2) not null,
+    estado varchar(20) not null,
+    PRIMARY KEY (idventa),
+    FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
+)DEFAULT CHARACTER SET utf8;
 
 create table Pedido_Articulo(
     pd_id INTEGER NOT NULL AUTO_INCREMENT,
     Ar_id INTEGER NOT NULL,
-    iduser INT NOT NULL,
+    cantidad INTEGER NOT NULL,
     idventa INTEGER NOT NULL,
+    total_articulo decimal (11,2) not null,
     PRIMARY KEY (pd_id),
     FOREIGN KEY (Ar_id) REFERENCES articulod(Ar_id),
-    FOREIGN KEY (idventa) REFERENCES pedido(idventa),
-    FOREIGN KEY (iduser) REFERENCES usuarios(iduser)
+    FOREIGN KEY (idventa) REFERENCES pedido(idventa)
 )DEFAULT CHARACTER SET utf8;
 
-create table inventario(
-    inv_id INTEGER NOT NULL AUTO_INCREMENT,
-    inv_date varchar(14) not null,
-    inv_total integer not null,
-    Ar_id integer not null,
-    PRIMARY KEY (inv_id),
-    FOREIGN KEY (Ar_id) REFERENCES articulod(Ar_id)
-)DEFAULT CHARACTER SET utf8;
+
 
 /*triggers*/
 
@@ -156,26 +146,6 @@ END; //
 
 DELIMITER ;
 
-DELIMITER //
-CREATE TRIGGER Usuario_before_insert
-BEFORE INSERT
-   ON usuarios FOR EACH ROW
-
-BEGIN
-
-	SET NEW.iduser = NEW.iduser;
-	SET NEW.id_rol = 2;
-	SET NEW.nombre = NEW.nombre;
-	SET NEW.apellidos =NEW.apellidos;
-	SET NEW.correo = NEW.correo;
-	SET NEW.passwd = NEW.passwd;
-	SET NEW.telefono =NEW.telefono;
-    
-END; //
-
-DELIMITER ;
-
-
 /*Insertando Categorias*/
 INSERT INTO categoria(nombre_cat) Values ('Electroterapia');
 INSERT INTO categoria(nombre_cat) Values ('Ultrasonido');
@@ -187,9 +157,8 @@ INSERT INTO categoria(nombre_cat) Values ('Vendaje Neuromuscular');
 
 -- Insertando imagenes
 -- Insertando articulos
-INSERT INTO articulod(id_categoria,Ar_descripcion,Ar_precioVenta,Ar_nombre,Ar_stock,Ar_precioCosto) VALUES(1,'Testing',60,'Vendas',20,52);
+INSERT INTO articulod(id_categoria,Ar_descripcion,Ar_precioVenta,Ar_nombre,Ar_stock,Ar_precioCosto,img,inv_date) VALUES(1,'Testing',60,'Vendas',20,52,"testiing","04-05-2022");
 -- Insertando pedido
-
 
 /*INSERT INTO pedido(fecha_hora,cantidad,total,estado) VALUES('2000-23-12',12,122,'enviado');*/
 
@@ -239,7 +208,9 @@ INSERT INTO estados(estado)VALUES('Zacatecas');
 -- Insertando Direccion
 
 
-INSERT INTO usuarios(nombre,apellidos,correo,passwd,telefono) VALUES ('Luis Alejandro','Canchola Pedraza','test@gmail.com','123123123','123123123123');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (1,'Admin','Demo','demo@admin.com','$2y$10$lM53S8PwIrmtNkWXQqCthuuCah1JuhqCYsReajf/1nRyeYc/QNq/a','55-5555-5555');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (3,'Empleado','Demo','demo@empleado.com','$2y$10$H5vT7lrjg6y.th/k/UipY.LiQtVflw9FA63JQVZ.CoENjqMPuP9T.','55-5555-5556');
+INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'User','Demo','demo@user.com','$2y$10$PS2nGiJbtI3UjfP.mg/4EOazHwcoI9P7GtonhWO4IjBwX5yrR2iBG','55-5555-5557');
 INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
 
 -- Insertando Servicios
@@ -262,6 +233,26 @@ INSERT INTO hora (hora) VALUES('18:00');
 INSERT INTO hora (hora) VALUES('19:00');
 INSERT INTO hora (hora) VALUES('20:00');
 
+
+INSERT INTO pedido(iduser,fecha,total,estado) VALUES (1,"2022-04-05",60,"En Espera");
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,4,1,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,5,1,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,2,1,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,3,1,cantidad * 60);
+
+INSERT INTO pedido(iduser,fecha,total,estado) VALUES (2,"2022-04-05",60,"En Espera");
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,8,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,5,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,8,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,3,2,cantidad * 60);
+INSERT INTO articulod(id_categoria,Ar_descripcion,Ar_precioVenta,Ar_nombre,Ar_stock,Ar_precioCosto,img,inv_date,ganancia) VALUES(1,'$descripcion',$precioVenta,$nombre,$invtotal,$precioCosto,'$img','$fechainv',$ganancia);
+select * from articulod ;
+Select SUM(Ar_precioCosto)AND SUM(Ar_stock) FROM articulod;
+SELECT * FROM articulod a INNER JOIN categoria b ON a.id_categoria = a.id_categoria WHERE a.Ar_id=1;
+SELECT * FROM articulod a INNER JOIN categoria b ON a.id_categoria = b.id_categoria WHERE a.Ar_id=2;
+
+SELECT a.Ar_id,a.ganancia,a.Ar_descripcion,a.precioVenta,a.Ar_nombre,a.Ar_stock,a.Ar_precioCosto,a.img,a.inv_date,b.nombre_cat FROM articulod a INNER JOIN categoria b WHERE a.Ar_id=2;
+/*
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',1,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',2,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',3,1,'Test');
@@ -277,7 +268,7 @@ INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-
 INSERT INTO inventario(inv_date,inv_total,Ar_id) VALUES('2022-12-12',20,1);
 
 SELECT * FROM direccion WHERE iduser=5;
-/*
+
 SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1);
 /*SELECT a.calle,a.exterior,a.interior,b.estado,a.colonia,a.codigo_postal FROM direccion a INNER JOIN estados b ON a.id_estado = b.id_estado WHERE  ( a.id_direccion=1)
 

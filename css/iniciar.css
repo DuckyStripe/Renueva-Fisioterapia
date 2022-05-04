@@ -244,11 +244,8 @@ label{
     font-weight:bold;
     font-size: 20px;
     color: var( --color-titulos);
-    padding-top: 2rem!important;
-    padding-bottom: 2rem!important; 
     text-align: center;
     text-decoration: none;
-    padding-bottom: 2rem;
     width: 100%;
 }
 .info:hover{
