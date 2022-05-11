@@ -26,8 +26,8 @@
                         <input required class="ress" type="name" name="producto" id="producto"><br>
                     </label>
                     <label for="categoria">Categoria:<br>
-                        <select class="ress" name="categoria" id="categoria">
-                            <option selected value="0">Selecciona una categoria</option>
+                        <select required class="ress" name="categoria" id="categoria" >
+                            <option  value="0">Selecciona una categoria</option>
                             <?php
                             $query = "SELECT * FROM categoria ;";
                             $consulta = mysqli_query($connect, $query);

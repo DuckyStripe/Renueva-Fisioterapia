@@ -67,11 +67,11 @@ $total = number_format($totalp, 2);
                 $query = "SELECT estado FROM pedido";
                 $consulta = mysqli_query($connect, $query);
                 $row = mysqli_fetch_array($consulta);
-                $estado = $row['estado'];
+                $estadop = $row['estado'];
                 mysqli_free_result($consulta);
                 ?>
                 <select class="inp" name="estado" required>
-                    <option selected value="<?php echo $estado ?>"><?php echo $estado ?></option>
+                    <option selected value="<?php echo $estadop ?>"><?php echo $estadop ?></option>
                     <option value="En Espera">En Espera</option>
                     <option value="En Proceso">En Proceso</option>
                     <option value="Enviado">Enviado</option>

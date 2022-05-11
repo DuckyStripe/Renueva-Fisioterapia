@@ -43,7 +43,7 @@ if(isset($_GET["producto"])){
                     <?php echo '<img height="300" width="300" src="data:image/jpeg;base64,' . base64_encode($img) . '"/>'; ?>
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['Ar_nombre'] ?></h5>
-                        <p class="card-text"><?php echo $row['Ar_descripcion'] ?></p>
+                        <h6 class="card-text"><?php echo $row['Ar_descripcion'] ?></h6>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Precio: $<?php echo $row['Ar_precioVenta'] ?> </li>

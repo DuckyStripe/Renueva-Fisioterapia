@@ -52,6 +52,7 @@ if(isset($_POST['id']) AND isset($_POST['cantidad']) AND isset($_POST['stock']) 
                         $cantidad=$row['cantidad'];
                     }else{
                         $cantidad=1;
+                        
                     }
                     $img = $row['img'];
                 ?>

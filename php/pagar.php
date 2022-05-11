@@ -40,11 +40,21 @@ if ($numero_aleatorio > 5) {
         $Ar_id = $row['Ar_id'];
         $cantidad = $row['cantidad'];
         $total = $row['total_articulo'];
+        //obtenemos el stock
+        $stocks = "SELECT Ar_stock FROM articulod WHERE Ar_id=$Ar_id)";
+        $stocksCon = mysqli_query($connect, $stocks);
+        $stockA=mysqli_fetch_array($stocksCon);
+        $stock=$stockA[0];
+        $Updatestock=$stock-$cantidad;
+        $inv = "UPDATE articulod SET Ar_stock = $Updatestock;";
+        $invCon = mysqli_query($connect, $inv);
+
         $inert = "INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo) VALUES($Ar_id,$cantidad,$idventa,$total)";
         $insertCon = mysqli_query($connect, $inert);
     }
     $borrar = "DELETE FROM tmp_pedido WHERE id_user=$iduser";
     $borrarCon = mysqli_query($connect, $borrar);
+    //inventario
     //Envio de pedido por correo
     $asunto = "Informe de pedido $idventa ";
     $cuerpo = "Hola: $name . $lastname \n";

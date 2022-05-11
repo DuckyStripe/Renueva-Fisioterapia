@@ -12,15 +12,15 @@
             include ('../../modulos/shop.php');
         break;
         case 'carrito':
-            include('../../Template/headperfil.php');
+            include('../../Template/headshop2.php');
             include('../../modulos/carrito.php');
         break;
         case 'pagar':
-            include('../../Template/headperfil.php');
+            include('../../Template/headshop2.php');
             include('../../modulos/pagar.php');
         break;
         case 'checkout':
-            include('../../Template/headperfil.php');
+            include('../../Template/headshop2.php');
             include('../../modulos/checkout.php');
         break;
         default:
