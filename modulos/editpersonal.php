@@ -21,7 +21,7 @@ $correo = $row1['correo'];
 $apellidos = $row1['apellidos'];
 $telefono = $row1['telefono'];
 $nombre = $row1['nombre'];
-$rol=$row1['id_rol'];
+$rol = $row1['id_rol'];
 
 
 
@@ -78,16 +78,18 @@ if (mysqli_num_rows($consulta2) == 0) {
                         <label for="email">Correo electrónico:<br>
                             <input disabled class="ress" type="email" name="correo" id="correo" value="<?php echo $correo ?>"><br>
                         </label>
-                        <?php
+                        <label for="rol">Rol:
+                            <?php
                             $query = "SELECT * FROM rol WHERE id_rol=$rol";
                             $consulta = mysqli_query($connect, $query);
                             while ($row = mysqli_fetch_array($consulta)) {
                             ?>
-                        <select disabled class="ress" name="rol" required>
-                                <option  selected value="<?php echo $row['id_rol'] ?>"><?php echo $row['rol'] ?></option>
-                            <?php }
+                                <select disabled class="ress" name="rol" required>
+                                    <option selected value="<?php echo $row['id_rol'] ?>"><?php echo $row['rol'] ?></option>
+                                <?php }
                             mysqli_free_result($consulta); ?>
-                        </select>
+                                </select>
+                        </label>
                     </div>
                     <div class="col1_111">
                         <label for="name">Apellidos:<br>
@@ -113,17 +115,19 @@ if (mysqli_num_rows($consulta2) == 0) {
                             <label for="email">Correo electrónico:<br>
                                 <input class="ress" type="email" name="email" placeholder="example@example.com"><br>
                             </label>
-                            <select class="ress" name="rol" >
-                            <option value="" selected>Seleccione un rol</option>
-                            <?php
-                            $query = "SELECT * FROM rol;";
-                            $consulta = mysqli_query($connect, $query);
-                            while ($row = mysqli_fetch_array($consulta)) {
-                            ?>
-                                <option value="<?php echo $row['id_rol'] ?>"><?php echo $row['rol'] ?></option>
-                            <?php }
-                            mysqli_free_result($consulta); ?>
-                        </select>
+                            <label for="rol">Rol:
+                                <select class="ress" name="rol">
+                                    <option value="" selected>Seleccione un rol</option>
+                                    <?php
+                                    $query = "SELECT * FROM rol;";
+                                    $consulta = mysqli_query($connect, $query);
+                                    while ($row = mysqli_fetch_array($consulta)) {
+                                    ?>
+                                        <option value="<?php echo $row['id_rol'] ?>"><?php echo $row['rol'] ?></option>
+                                    <?php }
+                                    mysqli_free_result($consulta); ?>
+                                </select>
+                            </label>
                         </div>
                         <div class="col1_111">
                             <label for="name">Apellidos:<br>

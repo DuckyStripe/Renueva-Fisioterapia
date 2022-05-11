@@ -39,7 +39,7 @@ error_reporting(0);
     <link rel="shortcut icon" href="../img/logo.png">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <title>Renueva Fisioterapia</title>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 </head>
 
 <body>

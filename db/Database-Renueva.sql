@@ -11,6 +11,8 @@ create table categoria(
     PRIMARY KEY (id_categoria)
 )DEFAULT CHARACTER SET utf8;
 
+
+
 create table articulod(
     Ar_id INTEGER NOT NULL AUTO_INCREMENT,
     id_categoria integer not null,
@@ -33,6 +35,7 @@ create table rol(
     primary key (id_rol)
 )DEFAULT CHARACTER SET utf8;
 
+
 create table usuarios(
     iduser int not null auto_increment,
     id_rol  INT not null,
@@ -44,6 +47,17 @@ create table usuarios(
     PRIMARY KEY (iduser),
     FOREIGN KEY (id_rol) REFERENCES rol(id_rol)
 )DEFAULT CHARACTER SET utf8;
+
+create table tmp_pedido(
+	id_tmp  int not null auto_increment,
+    id_user int not null,
+    Ar_id int not null unique,
+    cantidad int ,
+    total_articulo decimal(11,2),
+	PRIMARY KEY (id_tmp),
+    FOREIGN KEY (id_user) REFERENCES usuarios(iduser),
+    FOREIGN KEY (Ar_id) REFERENCES articulod(Ar_id)
+    )DEFAULT CHARACTER SET utf8;
 
 create table servicios(
     id_servicio int not null auto_increment,
@@ -95,7 +109,7 @@ CREATE table direccion(
 create table pedido(
     idventa INTEGER NOT NULL auto_increment,
     iduser INTEGER NOT NULL,
-    fecha varchar(50) not null,
+    fecha date not null,
     total decimal (11,2) not null,
     estado varchar(20) not null,
     PRIMARY KEY (idventa),
@@ -146,6 +160,20 @@ END; //
 
 DELIMITER ;
 
+DELIMITER $$
+
+CREATE  PROCEDURE buscarUsuario(in patron varchar(15))
+BEGIN
+    select * from usuarios where nombre like concat('%',patron,'%');
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE  PROCEDURE buscarProducto(in patron varchar(15))
+BEGIN
+    SELECT * FROM articulod WHERE Ar_nombre LIKE concat('%',patron,'%');
+END $$
+DELIMITER ;
 /*Insertando Categorias*/
 INSERT INTO categoria(nombre_cat) Values ('Electroterapia');
 INSERT INTO categoria(nombre_cat) Values ('Ultrasonido');
@@ -233,25 +261,50 @@ INSERT INTO hora (hora) VALUES('18:00');
 INSERT INTO hora (hora) VALUES('19:00');
 INSERT INTO hora (hora) VALUES('20:00');
 
-
+/*
 INSERT INTO pedido(iduser,fecha,total,estado) VALUES (1,"2022-04-05",60,"En Espera");
 INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,4,1,cantidad * 60);
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,5,1,cantidad * 60);
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,2,1,cantidad * 60);
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,3,1,cantidad * 60);
-
-INSERT INTO pedido(iduser,fecha,total,estado) VALUES (2,"2022-04-05",60,"En Espera");
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,8,2,cantidad * 60);
 INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,5,2,cantidad * 60);
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,8,2,cantidad * 60);
-INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,3,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,2,3,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(1,3,4,cantidad * 60);
+
+INSERT INTO pedido(iduser,fecha,total,estado) VALUES (1,"2022-04-05",60,"En Espera");
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(3,8,2,cantidad * Ar_precioVenta);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(3,5,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(3,8,2,cantidad * 60);
+INSERT INTO pedido_articulo(Ar_id,cantidad,idventa,total_articulo)VALUES(3,3,2,cantidad * 60);
+SELECT fecha FROM pedido WHERE fecha='2022-05-05';
+SELECT * FROM pedido WHERE fecha='2022-05-05';
+SELECT DISTINCTROW fecha FROM pedido ORDER BY fecha ASC;
+SELECT * FROM pedido WHERE fecha='2022-04-13';
+SELECT DISTINCTROW * FROM pedido ORDER BY fecha ASC;
+SELECT * FROM articulod;
+SELECT * FROM articulod WHERE MATCH(Ar_nombre) AGAINST ('Vendas');
+/*
 INSERT INTO articulod(id_categoria,Ar_descripcion,Ar_precioVenta,Ar_nombre,Ar_stock,Ar_precioCosto,img,inv_date,ganancia) VALUES(1,'$descripcion',$precioVenta,$nombre,$invtotal,$precioCosto,'$img','$fechainv',$ganancia);
 select * from articulod ;
-Select SUM(Ar_precioCosto)AND SUM(Ar_stock) FROM articulod;
+Select SUM(Ar_precioCosto)* SUM(Ar_stock) FROM articulod;
 SELECT * FROM articulod a INNER JOIN categoria b ON a.id_categoria = a.id_categoria WHERE a.Ar_id=1;
 SELECT * FROM articulod a INNER JOIN categoria b ON a.id_categoria = b.id_categoria WHERE a.Ar_id=2;
-
+SET FOREIGN_KEY_CHECKS=1;
 SELECT a.Ar_id,a.ganancia,a.Ar_descripcion,a.precioVenta,a.Ar_nombre,a.Ar_stock,a.Ar_precioCosto,a.img,a.inv_date,b.nombre_cat FROM articulod a INNER JOIN categoria b WHERE a.Ar_id=2;
+SELECT a.idventa,b.nombre, b.apellidos,b.correo,b.telefono,a.total,a.fecha,a.estado FROM pedido a INNER JOIN usuarios b WHERE a.iduser= b.iduser;
+SELECT a.idventa,b.nombre, b.apellidos,b.correo,b.telefono,a.total,a.fecha,a.estado FROM pedido a INNER JOIN usuarios b WHERE a.iduser= b.iduser;
+Select * from pedido_articulo; 
+SELECT a.iduser,a.idventa,a.fecha,a.total,a.estado,c.cantidad,c.total_articulo,d.img,d.Ar_descripcion,d.Ar_precioVenta,d.Ar_nombre,e.nombre_cat FROM pedido a INNER JOIN usuarios b INNER JOIN pedido_articulo c INNER JOIN articulod d INNER JOIN categoria e WHERE a.iduser= b.iduser AND a.idventa = c.idventa AND d.id_categoria=e.id_categoria AND a.idventa=1;
+SELECT * FROM pedido_articulo;
+SELECT * FROM pedido a INNER JOIN usuarios b INNER JOIN pedido_articulo c WHERE a.iduser= b.iduser AND a.idventa = c.idventa AND a.idventa=1;
+SELECT a.iduser,a.idventa,a.fecha,a.total,a.estado,c.cantidad,c.total_articulo,d.img,d.Ar_descripcion,d.Ar_precioVenta,d.Ar_nombre,e.nombre_cat FROM pedido a INNER JOIN usuarios b INNER JOIN pedido_articulo c INNER JOIN articulod d INNER JOIN categoria e WHERE a.iduser= b.iduser AND a.idventa = c.idventa AND d.Ar_id=c.Ar_id AND d.id_categoria=e.id_categoria AND a.idventa=1;
+UPDATE pedido SET estado =Enviado WHERE id_venta=1;
+
+UPDATE pedido_articulo SET total_articulo =120 WHERE pd_id=1;
+SELECT SUM(total_articulo) FROM pedido_articulo WHERE idventa=1;
+SELECT * FROM pedido;
+SELECT * FROM pedido_articulo;
+SELECT SUM(total_articulo) FROM pedido_articulo WHERE idventa=1;
+SELECT SUM(total_articulo) FROM pedido_articulo WHERE idventa=1;
+
+SELECT a.iduser,a.idventa,a.fecha,a.total,a.estado,c.cantidad,c.total_articulo,d.img,d.Ar_descripcion,d.Ar_precioVenta,d.Ar_nombre,e.nombre_cat,c.pd_id FROM pedido a INNER JOIN usuarios b ON a.iduser= b.iduser INNER JOIN pedido_articulo c ON a.idventa = c.idventa INNER JOIN articulod d ON c.Ar_id=d.Ar_id INNER JOIN categoria e ON d.id_categoria = e.id_categoria WHERE a.idventa=1;
 /*
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',1,1,'Test');
 INSERT INTO citas(iduser,fecha,idhora,id_servicio,comentario) VALUES(1,'2022-12-12',2,1,'Test');

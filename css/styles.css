@@ -10,7 +10,7 @@
 main{
     overflow:hidden;
     width:100%;
-    padding-bottom: 2rem;
+    padding-bottom: 2rem!important;
 }
 *{
     margin: 0;    
@@ -255,7 +255,8 @@ footer{
 
 #menu ul li a{
     display: block;
-    padding: 20px 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-decoration: none;
 }
 #menu,ul,li,a:hover{
@@ -263,7 +264,10 @@ footer{
     text-decoration: none;
 }
 
+.item-l{
+    float: left;
 
+}
 .item-r{
     float: right;
 
@@ -281,3 +285,10 @@ footer{
 a:hover{
     color: var(--color-contacto);
 }
+.contenedor {
+    width: 100%;
+    padding-right: 4rem;
+    padding-left: 4rem;
+    margin-right: auto;
+    margin-left: auto;
+  }

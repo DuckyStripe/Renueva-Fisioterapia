@@ -74,17 +74,6 @@ include('../../Template/admin.php');
                 </span>
             </li>
             <li>
-                <a href="admin.php?action=reportes">
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">
-                        <h3>Reportes</h3>
-                    </span>
-                </a>
-                <span class="tooltip">
-                    <h3>Reportes</h3>
-                </span>
-            </li>
-            <li>
                 <a href="admin.php?action=pedidos">
                     <i class='bx bx-cart-alt'></i>
                     <span class="links_name">
@@ -95,6 +84,18 @@ include('../../Template/admin.php');
                     <h3>Pedidos</h3>
                 </span>
             </li>
+            <li>
+                <a href="admin.php?action=reportes">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">
+                        <h3>Reportes</h3>
+                    </span>
+                </a>
+                <span class="tooltip">
+                    <h3>Reportes</h3>
+                </span>
+            </li>
+
             <li>
                 <a href="admin.php?action=settings">
                     <i class='bx bx-cog'></i>
@@ -216,6 +217,9 @@ include('../../Template/admin.php');
             case 'modal':
                 include('../../modulos/modal.php');
             break;
+            case 'modalcat':
+                include('../../modulos/modalcat.php');
+            break;
             case 'citas':
                 include('../../modulos/citas.php');
                 break;
@@ -242,6 +246,9 @@ include('../../Template/admin.php');
             break;
             case 'nuevoproducto':
                 include('../../modulos/nuevoproducto.php');
+            break;
+            case 'detalles':
+                include('../../modulos/detalles.php');
             break;
             default:
                 include ('../../modulos/registro.php');
