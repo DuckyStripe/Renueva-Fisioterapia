@@ -1,5 +1,5 @@
 SET NAMES 'utf8';
-use renueva;
+use id18841401_renueva;
 
 create table categoria(
     id_categoria INTEGER NOT NULL AUTO_INCREMENT,
@@ -261,7 +261,7 @@ INSERT INTO `articulod` (`Ar_id`, `id_categoria`, `ganancia`, `Ar_descripcion`, 
 
 -- --------------------------------------------------------
 -- Insertando Direccion
-INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
+
 
 INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (1,'Admin','Demo','demo@admin.com','$2y$10$lM53S8PwIrmtNkWXQqCthuuCah1JuhqCYsReajf/1nRyeYc/QNq/a','55-5555-5555');
 INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (3,'Empleado','Demo','demo@empleado.com','$2y$10$H5vT7lrjg6y.th/k/UipY.LiQtVflw9FA63JQVZ.CoENjqMPuP9T.','55-5555-5556');
@@ -287,9 +287,7 @@ INSERT INTO hora (hora) VALUES('17:00');
 INSERT INTO hora (hora) VALUES('18:00');
 INSERT INTO hora (hora) VALUES('19:00');
 INSERT INTO hora (hora) VALUES('20:00');
-SELECT * FROM tmp_pedido ;
-
-INSERT INTO tmp_pedido (id_user,Ar_id) VALUES(1,1);
+INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
 
 /*
 INSERT INTO pedido(iduser,fecha,total,estado) VALUES (1,"2022-04-05",60,"En Espera");

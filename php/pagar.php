@@ -10,7 +10,7 @@ $fecha = date('Y-m-d');
 $numero_aleatorio = rand(1, 10);
 
 //Datos personales de
-$datos = "SELECT * FROM usuarios WHERE iduser=$id";
+$datos = "SELECT * FROM usuarios WHERE iduser=$iduser";
 $datosCon = mysqli_query($connect, $datos);
 $Datosfinales = mysqli_fetch_array($datosCon);
 $nombres = $Datosfinales['nombre'];
@@ -41,7 +41,7 @@ if ($numero_aleatorio > 5) {
         $cantidad = $row['cantidad'];
         $total = $row['total_articulo'];
         //obtenemos el stock
-        $stocks = "SELECT Ar_stock FROM articulod WHERE Ar_id=$Ar_id)";
+        $stocks = "SELECT Ar_stock FROM articulod WHERE Ar_id=$Ar_id";
         $stocksCon = mysqli_query($connect, $stocks);
         $stockA=mysqli_fetch_array($stocksCon);
         $stock=$stockA[0];
