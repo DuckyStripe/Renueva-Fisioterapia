@@ -22,9 +22,9 @@ if ($numero_aleatorio > 5) {
     $total = "SELECT SUM(total_articulo) FROM tmp_pedido a INNER JOIN articulod b ON a.Ar_id=b.Ar_id WHERE id_user=$iduser";
     $totalConsulta = mysqli_query($connect, $total);
     $row1 = mysqli_fetch_array($totalConsulta);
-    $total = $row1[0];
+    $totalventa = $row1[0];
     //Creando pedidos
-    $pedido = "INSERT INTO pedido(iduser,fecha,total,estado) VALUES($iduser,'$fecha',$total,'En Espera');";
+    $pedido = "INSERT INTO pedido(iduser,fecha,total,estado) VALUES($iduser,'$fecha',$totalventa,'En Espera');";
     $pedidoCon = mysqli_query($connect, $pedido);
 
     //obtencion del idventario
@@ -56,11 +56,16 @@ if ($numero_aleatorio > 5) {
     $borrarCon = mysqli_query($connect, $borrar);
     //inventario
     //Envio de pedido por correo
-    $asunto = "Informe de pedido $idventa ";
+    $usuario = "SELECT * FROM usuarios WHERE iduser=$iduser";
+    $buscar = mysqli_query($connect, $usuario);
+    $datosuser= mysqli_fetch_array($buscar);
+    $name=$datosuser['nombre'];
+    $lastname=$datosuser['apellidos'];
+    $asunto = "Informe de pedido $idventa\n ";
     $cuerpo = "Hola: $name . $lastname \n";
-    $cuerpo = "Agradecemos tu compre en nuestro sitio web:\n";
-    $cuerpo .= "Para revisar tu pedido ve a tu perfil";
-    $cuerpo .= "Total: $total \n";
+    $cuerpo = "Agradecemos tu compra en nuestro sitio web:\n";
+    $cuerpo .= "Tu compra estara contigo pronto\n";
+    $cuerpo .= "Total: $totalventa \n";
     $cuerpo .= "Gracias por tu compra.";
     mail($correo, $asunto, $cuerpo);
     echo '<script> alert("Pago Aceptado"); window.location.href="../views/shop/shop.php?action=shop"; </script>';

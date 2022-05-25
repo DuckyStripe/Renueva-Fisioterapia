@@ -265,13 +265,13 @@ INSERT INTO `articulod` (`Ar_id`, `id_categoria`, `ganancia`, `Ar_descripcion`, 
 
 -- --------------------------------------------------------
 -- Insertando Direccion
-INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
+
 
 INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (1,'Admin','Demo','demo@admin.com','$2y$10$lM53S8PwIrmtNkWXQqCthuuCah1JuhqCYsReajf/1nRyeYc/QNq/a','55-5555-5555');
 INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (3,'Empleado','Demo','demo@empleado.com','$2y$10$H5vT7lrjg6y.th/k/UipY.LiQtVflw9FA63JQVZ.CoENjqMPuP9T.','55-5555-5556');
 INSERT INTO usuarios(id_rol,nombre,apellidos,correo,passwd,telefono) VALUES (2,'User','Demo','demo@user.com','$2y$10$PS2nGiJbtI3UjfP.mg/4EOazHwcoI9P7GtonhWO4IjBwX5yrR2iBG','55-5555-5557');
 -- 
-
+INSERT INTO direccion(iduser,calle,exterior,interior,id_estado,colonia,codigo_postal) VALUES(1,'Zacatecas','65','65',1,'Buena vista',07200);
 -- Insertando Servicios
 INSERT INTO servicios (servicio) Values("Prevención, mantenimiento y recuperación de la funcionalidad del cuerpo.");
 INSERT INTO servicios (servicio) Values("Acción preventiva de lesiones.");

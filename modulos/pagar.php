@@ -28,15 +28,57 @@
                     </div>
                 </div>
                 <div class="row">
+                <script>
+                    const getmount = () => {
+                        var bandera = 0;
+                        let mes = new  Date();
+                        let mesinput =document.getElementById("mes").value;
+                        let mesouput=String(mes.getMonth() + 1).padStart(2, '0');
+                        console.log(mesouput);
+                        if (mesinput < mesouput) {
+                            alert("El mes " + mesinput + " no es valido");
+                            bandera = 0;
+                            window.location.href = "../shop/shop.php?action=pagar";
+
+                        } else {
+                            return bandera = 1;
+                        }
+                    }
+                    function enviar(bandera) {
+                        if (bandera == 1) {
+                            document.getElementById('agenda').submit();
+
+                        } else {
+                            alert("la fecha '" + extraer + "' no es valida");
+                            window.location.href = "../shop/shop.php?action=pagar";
+                        }
+                    }
+                            </script>
                     <div class="col-md-3 offset-md-2">
                         <label for="mes">Mes de vencimiento <br>
-                            <input required type="text" class="ress" name="mes" placeholder="05">
+                            <input required type="text" class="ress" name="mes" id="mes" onchange="getmount()" placeholder="05">
                         </label>
+
                     </div>
                     <div class="col-md-3">
                         <label for="año">Año de vencimiento <br>
-                            <input required type="text" class="ress" name="anio" placeholder="2020">
+                            <input required type="text" class="ress" name="anio" id="anio" onchange="getValueInput()"  placeholder="2022">
                         </label>
+                        <script>
+                    const getValueInput = () => {
+                        var bandera = 0;
+                        let extraer = document.getElementById("anio").value;
+                        let date = new Date();
+                        let output = date.getFullYear();
+                        if (extraer < output) {
+                            alert("la fecha " + extraer + " No es valida");
+                            bandera = 0;
+                            window.location.href = "#";
+                        } else {
+                            return bandera = 1;
+                        }
+                    }
+                            </script>
                     </div>
                     <div class="col-md-3">
                         <label for="cvv">CVV <br>
