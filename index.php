@@ -15,22 +15,22 @@
                 <div class="carousel-item active itemcarrusel">
                     <img src="img/carrusel/carrusel11.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+                        <h5>Personal Experto.</h5>
+                        <p>Nuestro personal esta listo siempre para ayudarte de forma especializada.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="img/carrusel/carrusel12.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
-                        <h5>Second slide label</h5>
-                        <p>Some representative placeholder content for the second slide.</p>
+                        <h5>Terapia especializada</h5>
+                        <p>Cada terapia es personalizada de acuerdo a tus necesidades.</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="img/carrusel/carrusel13.jpg" class="d-block w-100 imgcarrusel" alt="...">
                     <div class="carousel-caption itemcar">
-                        <h5>Third slide label</h5>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h5>Productos de alto nivel.</h5>
+                        <p>Nuestros productos son los mejores en el mercado, las mejores marcas nos respaldan.</p>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,10 @@
             <h2>Servicios</h2>
         </div>
         <div class="row categoria">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio iusto consequatur animi deleniti at quod corrupti accusantium laboriosam a nesciunt voluptate reiciendis, doloremque recusandae. Architecto iusto voluptas eos quia voluptatum.</p>
+            <p>La Fisioterapia es un tipo de terapia que permite actuar en la prevención, mantenimiento y recuperación de la funcionalidad del cuerpo.
+
+El doble beneficio de la fisioterapia se encuentra no sólo en el tratamiento de dolencias o patologías existentes sino también en su acción preventiva de lesiones.
+</p>
         </div>
         <div class="ServiciosTarjetas">
             <div class="card mb-3" style="max-width: max-content;">
@@ -61,8 +64,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Servicio 1</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Fisioterapia deportiva</h5>
+                            <p class="card-text">La fisioterapia deportiva permite la prestación de asesoramiento y la adaptación de la rehabilitación a efectos de prevenir lesiones, restaurar la función óptima del cuerpo, y contribuir a la mejora del rendimiento deportivo. Indicado a deportistas que deseen tener un servicio de fisioterapia orientado a la rehabilitación tras una lesión, al desarrollo de planes preventivos y compensatorios de las principales lesiones producidas en el deporte y a la evaluación y control del estado de forma de los deportistas.</p>
                         </div>
                     </div>
                 </div>
@@ -71,8 +74,8 @@
                 <div class="row g-0">
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Servicio 2</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Fisioterapia neurológica</h5>
+                            <p class="card-text">Técnica encaminada al tratamiento de las secuelas en lesiones del sistema nervioso central o periférico. El objetivo es mejorar las capacidades físicas y las alteraciones estructurales del paciente para, de este modo, rehabilitar o mejorar la calidad y eficacia de sus movimientos y de su postura.</p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -87,8 +90,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Servicio 3</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Fisioterapia geriátrica</h5>
+                            <p class="card-text">Fisioterapia preventiva y de mantenimiento especialmente diseñada para personas mayores de 65 años, con el objetivo de mejorar la capacidad personal del mayor, evitando el deterioro progresivo y mejorando su calidad de vida. Indicado para el mantenimiento físico general y para el tratamiento de fracturas, lesiones, esclerosis, artrosis, artritis reumatoide, posoperatorios, patologías vasculares, etc.</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +116,7 @@
                 <h2>Productos</h2>
             </div>
             <div class="row categoria">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt cumque vel assumenda rerum laborum odit architecto, error, culpa incidunt facere molestiae iusto non voluptatum minus? Soluta dolorum placeat harum nihil!</p>
+                <p>Nuestros productos nos definen por calidad, contamos con el respaldo de las mejores marcas, animate a comprar los productos que gustes en nuestra tienda en linea.  </p>
             </div>
             <div class="container-fluid">
                 <div class="col-md-10 offset-md-1">
@@ -122,22 +125,22 @@
                         <div class="card tarjetas">
                             <img src="img/productos/producto1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Vendajes</h5>
+                                <p class="card-text">Contamos con vendajes de la mas alta calidad, prevendajes, vendajes adhesivos, etc.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
                             <img src="img/productos/producto2.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Guantes</h5>
+                                <p class="card-text">Guantes de las mas alta calidad y las mejores marcas.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
                             <img src="img/productos/producto3.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Electrodos</h5>
+                                <p class="card-text">Diferentes modelos de electrodos para adaptarse a todo tipo de instrumentos.</p>
                             </div>
                         </div>
                     </div>
@@ -145,22 +148,22 @@
                         <div class="card tarjetas">
                             <img src="img/productos/producto4.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Consumibles</h5>
+                                <p class="card-text">Llévate los mejores consumibles como cables, aceites, geles, etc.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
                             <img src="img/productos/producto5.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Material desechable</h5>
+                                <p class="card-text">Ademas de contar con la mejor calidad contamos con el mejor precio, adquiere tus jeringas, gasas, agujas,etc.</p>
                             </div>
                         </div>
                         <div class="card tarjetas">
                             <img src="img/productos/producto6.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <h5 class="card-title">Aplicadores</h5>
+                                <p class="card-text">Los mejores materiales hablan por si solos, adquiere los mejores aplicadores aquí.</p>
                             </div>
                         </div>
                     </div>
